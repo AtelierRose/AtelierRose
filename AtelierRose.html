@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#6b1530">
+<title>ATELIER ROSE — букеты, которые никогда не завянут</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbf7f4;--bg-alt:#f5ece8;--card:#fff;--text:#1c1417;--muted:#8a7a80;--accent:#6b1530;--accent-light:#8c1f3f;--accent-2:#c98ba1;--gold:#b8912f;--cream:#f5e6dd;--border:#ece0dd;--shadow:0 30px 70px -30px rgba(107,21,48,.35);--shadow-lg:0 50px 100px -40px rgba(107,21,48,.45);--header-h:78px;--success:#2e7d32;--error:#c62828}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font-family:'Montserrat',sans-serif;font-weight:400;line-height:1.7;overflow-x:hidden;position:relative}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle at 15% 20%,rgba(201,139,161,.08),transparent 40%),radial-gradient(circle at 85% 60%,rgba(184,145,47,.05),transparent 45%);pointer-events:none;z-index:0}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.05;letter-spacing:-.01em}
+.container{max-width:1200px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+.eyebrow{font-size:.7rem;letter-spacing:.38em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:22px;display:inline-flex;align-items:center;gap:14px}
+.eyebrow::before{content:'';width:32px;height:1px;background:var(--gold)}
+.divider{width:54px;height:1px;background:var(--gold);margin:22px 0}
+.divider.center{margin:22px auto}
+header{position:sticky;top:0;z-index:50;background:rgba(251,247,244,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(236,224,221,.6)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:var(--header-h);gap:16px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text);min-width:0}
+.logo-mark{width:46px;height:46px;border-radius:50%;overflow:hidden;flex-shrink:0;display:grid;place-items:center;box-shadow:0 8px 22px -8px rgba(107,21,48,.5);border:2px solid rgba(184,145,47,.35)}
+.logo-mark img{width:100%;height:100%;object-fit:cover;display:block}
+.logo-text b{font-family:'Cormorant Garamond',serif;font-size:1.32rem;font-weight:600;letter-spacing:.18em;display:block;white-space:nowrap;color:var(--accent)}
+.logo-text span{font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);display:block;white-space:nowrap}
+nav ul{display:flex;gap:22px;list-style:none}
+nav a{color:var(--text);text-decoration:none;font-size:.82rem;letter-spacing:.08em;font-weight:500;position:relative;padding-bottom:4px;transition:color .3s;cursor:pointer}
+nav a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--accent);transition:width .35s}
+nav a:hover{color:var(--accent)}
+nav a:hover::after{width:100%}
+nav a.active{color:var(--accent)}
+nav a.active::after{width:100%}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.nav-cta{border:1px solid var(--accent);color:var(--accent);padding:11px 22px;border-radius:40px;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;font-weight:600;transition:.35s;white-space:nowrap;background:transparent;cursor:pointer}
+.nav-cta:hover{background:var(--accent);color:#fff;transform:translateY(-2px)}
+.btn-auth{border:1px solid var(--border);color:var(--text);padding:11px 20px;border-radius:40px;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;background:#fff;cursor:pointer;transition:.3s;white-space:nowrap;font-family:'Montserrat',sans-serif}
+.btn-auth:hover{border-color:var(--accent);color:var(--accent)}
+.user-chip{display:flex;align-items:center;gap:10px;padding:5px 14px 5px 5px;background:var(--bg-alt);border:1px solid var(--border);border-radius:40px;cursor:pointer;transition:.3s;max-width:220px}
+.user-chip:hover{border-color:var(--accent)}
+.user-chip .ava{width:34px;height:34px;border-radius:50%;background:linear-gradient(140deg,var(--accent),var(--accent-2));color:#fff;display:grid;place-items:center;font-size:.85rem;font-weight:700;flex-shrink:0}
+.user-chip .name{font-size:.8rem;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.user-dropdown{position:absolute;top:calc(var(--header-h) - 8px);right:28px;background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow-lg);padding:8px;min-width:220px;display:none;z-index:60}
+.user-dropdown.open{display:block}
+.user-dropdown .drop-head{padding:14px 16px 12px;border-bottom:1px solid var(--border);margin-bottom:6px}
+.user-dropdown .drop-head b{display:block;font-size:.88rem;margin-bottom:2px}
+.user-dropdown .drop-head span{font-size:.74rem;color:var(--muted)}
+.user-dropdown a,.user-dropdown button{display:flex;align-items:center;gap:10px;width:100%;padding:11px 16px;border-radius:12px;font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:500;color:var(--text);text-decoration:none;background:transparent;border:none;cursor:pointer;text-align:left;transition:.2s}
+.user-dropdown a:hover,.user-dropdown button:hover{background:var(--bg-alt);color:var(--accent)}
+.menu-toggle{display:none;width:44px;height:44px;border:1px solid var(--border);background:transparent;border-radius:50%;cursor:pointer;padding:0;flex-direction:column;align-items:center;justify-content:center;gap:5px;flex-shrink:0;transition:.3s}
+.menu-toggle span{display:block;width:20px;height:2px;background:var(--text);border-radius:2px;transition:.35s}
+.menu-toggle.open{background:var(--accent);border-color:var(--accent)}
+.menu-toggle.open span{background:#fff}
+.menu-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-toggle.open span:nth-child(2){opacity:0}
+.menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:var(--header-h);left:0;right:0;bottom:0;background:linear-gradient(160deg,#fbf7f4 0%,#f5ece8 100%);z-index:49;padding:24px 28px 40px;transform:translateX(100%);transition:transform .45s cubic-bezier(.2,.7,.3,1);overflow-y:auto}
+.mobile-menu.open{transform:translateX(0)}
+.mobile-menu ul{list-style:none}
+.mobile-menu li{border-bottom:1px solid var(--border)}
+.mobile-menu a{display:block;padding:18px 0;font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--text);text-decoration:none}
+.mobile-menu a.active{color:var(--accent)}
+.mobile-menu .mobile-cta{display:block;margin-top:20px;text-align:center;padding:16px 34px;background:var(--accent);color:#fff;border-radius:44px;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;text-decoration:none}
+.mobile-menu .mobile-auth{display:block;margin-top:10px;text-align:center;padding:14px;border:1px solid var(--border);background:#fff;border-radius:44px;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--text);cursor:pointer;width:100%;font-family:'Montserrat',sans-serif}
+.marquee{background:var(--accent);color:#fff;padding:16px 0;overflow:hidden}
+.marquee-track{display:flex;width:max-content;animation:marquee 42s linear infinite}
+.marquee-item{display:inline-flex;align-items:center;gap:26px;padding:0 26px;font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-style:italic;font-weight:500;white-space:nowrap}
+.marquee-item::after{content:'✦';color:var(--accent-2);font-style:normal;font-size:1rem}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ================= HERO ================= */
+.hero{padding:70px 0 90px;position:relative;overflow:hidden}
+.hero-deco{position:absolute;border-radius:50%;pointer-events:none;filter:blur(60px);opacity:.5}
+.hero-deco-1{top:-150px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(201,139,161,.55),transparent 70%)}
+.hero-deco-2{bottom:-200px;left:-150px;width:600px;height:600px;background:radial-gradient(circle,rgba(184,145,47,.25),transparent 70%)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;position:relative;z-index:2}
+.hero h1{font-size:clamp(2.6rem,6vw,5rem);font-weight:500;line-height:1;letter-spacing:-.02em}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--accent);position:relative}
+.hero h1 em::after{content:'';position:absolute;left:0;right:0;bottom:.08em;height:.12em;background:var(--gold);opacity:.4;border-radius:2px}
+.hero p.lead{font-size:1.05rem;color:var(--muted);max-width:480px;margin-top:22px;font-weight:300}
+.hero-btns{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;padding:17px 34px;border-radius:44px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;transition:.4s;cursor:pointer;border:1px solid transparent;text-align:center}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 20px 40px -16px var(--accent)}
+.btn-primary:hover{transform:translateY(-4px);box-shadow:0 30px 55px -18px var(--accent)}
+.btn-ghost{border-color:var(--border);color:var(--text);background:rgba(255,255,255,.5)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-4px);background:#fff}
+.btn-white{background:#fff;color:var(--accent);box-shadow:0 20px 40px -16px rgba(0,0,0,.35)}
+.btn-white:hover{transform:translateY(-4px) scale(1.02)}
+
+.hero-stats{display:flex;gap:52px;margin-top:56px;padding-top:32px;border-top:1px solid var(--border)}
+.hero-stats .stat b{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;display:block;line-height:1;color:var(--accent);letter-spacing:-.02em}
+.hero-stats .stat span{font-size:.7rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;font-weight:500;display:block;margin-top:6px}
+
+/* Фото в hero — обёртка с относительным позиционированием */
+.hero-photo-wrap{position:relative;display:block}
+.hero-photo{aspect-ratio:4/5;border-radius:260px 260px 20px 20px;background:linear-gradient(160deg,var(--cream),var(--accent-2));display:grid;place-items:center;font-size:11rem;box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
+.hero-photo::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.7),transparent 55%)}
+.hero-photo::after{content:'';position:absolute;inset:12px;border-radius:250px 250px 14px 14px;border:1px solid rgba(255,255,255,.35);pointer-events:none}
+.hero-photo span{position:relative;z-index:2;filter:drop-shadow(0 20px 30px rgba(107,21,48,.3))}
+
+/* Бейдж «5-7 дней» — теперь внутри правой колонки, внизу фото */
+.photo-badge{position:absolute;bottom:20px;right:-20px;left:auto;background:#fff;border:1px solid var(--border);border-radius:20px;padding:16px 24px;box-shadow:var(--shadow);text-align:center;z-index:5;animation:badgePulse 4s ease-in-out infinite}
+.photo-badge b{font-family:'Cormorant Garamond',serif;font-size:1.7rem;display:block;color:var(--accent);line-height:1}
+.photo-badge span{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:4px;display:block;white-space:nowrap}
+@keyframes badgePulse{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+.hero-note{max-width:660px;margin:56px auto 0;background:linear-gradient(135deg,rgba(184,145,47,.1),rgba(184,145,47,.04));border:1px solid rgba(184,145,47,.3);border-radius:20px;padding:22px 30px;text-align:center;font-size:.9rem;position:relative;z-index:2}
+.hero-note b{color:var(--accent);font-weight:600}
+
+section{padding:90px 0;position:relative;z-index:1}
+.section-alt{background:linear-gradient(180deg,transparent,rgba(245,236,232,.7) 30%,rgba(245,236,232,.7) 70%,transparent)}
+.section-head{text-align:center;max-width:680px;margin:0 auto 60px}
+.section-head h2{font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-.015em}
+.section-head p{color:var(--muted);font-weight:300;font-size:1rem;margin-top:16px}
+.adv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.adv{background:#fff;border:1px solid var(--border);border-radius:24px;padding:38px 26px;text-align:center;transition:.5s}
+.adv:hover{transform:translateY(-10px);box-shadow:var(--shadow);border-color:transparent}
+.adv-icon{width:70px;height:70px;margin:0 auto 22px;border-radius:22px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(201,139,161,.2),rgba(184,145,47,.12));font-size:2rem}
+.adv h3{font-size:1.3rem;margin-bottom:10px;font-weight:600}
+.adv p{font-size:.85rem;color:var(--muted);font-weight:300}
+.price-banner{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;background:linear-gradient(135deg,#fff,var(--cream));border:1px solid var(--border);border-radius:24px;margin-bottom:50px;box-shadow:var(--shadow);overflow:hidden}
+.price-item{padding:30px 40px;text-align:center;flex:1;min-width:160px;position:relative}
+.price-item:not(:last-child)::after{content:'';position:absolute;right:0;top:25%;bottom:25%;width:1px;background:var(--border)}
+.price-item b{font-family:'Cormorant Garamond',serif;font-size:2.3rem;font-weight:600;color:var(--accent);display:block;line-height:1}
+.price-item span{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:500;display:block;margin-top:8px}
+.gallery-preview,.gallery-full{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.gallery-preview{margin-bottom:44px}
+.work{position:relative;overflow:hidden;border-radius:22px;aspect-ratio:4/5;box-shadow:var(--shadow);transition:.55s;cursor:pointer}
+.work:hover{transform:translateY(-12px);box-shadow:var(--shadow-lg)}
+.work img{width:100%;height:100%;object-fit:cover;transition:transform 1s;display:block}
+.work:hover img{transform:scale(1.08)}
+.work-tag{position:absolute;top:18px;left:18px;z-index:3;background:rgba(255,255,255,.95);color:var(--accent);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;padding:8px 16px;border-radius:30px;font-weight:600}
+.gallery-cta{text-align:center}
+.catalog-note{text-align:center;font-size:.88rem;color:var(--muted);margin-top:36px;font-weight:300}
+.about-hero{max-width:880px;margin:0 auto;text-align:center;padding:30px 0;position:relative}
+.about-hero::before{content:'«';position:absolute;top:-30px;left:50%;transform:translateX(-50%);font-family:'Cormorant Garamond',serif;font-size:12rem;color:var(--accent-2);opacity:.18;pointer-events:none}
+.about-hero h2{font-size:clamp(2rem,4vw,3rem);position:relative;z-index:1}
+.about-hero h2 em{font-style:italic;color:var(--accent)}
+.about-hero p{font-size:1.05rem;color:var(--muted);font-weight:300;max-width:620px;margin:24px auto;line-height:1.8}
+.about-hero p b{color:var(--text);font-weight:500}
+.about-signature{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2.2rem;color:var(--accent);margin-top:24px;display:inline-block}
+.about-signature::before,.about-signature::after{content:'·';color:var(--gold);font-size:2rem;margin:0 14px;vertical-align:middle;opacity:.6}
+.about-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:720px;margin:50px auto 0}
+.about-meta-item{text-align:center;padding:24px 18px;background:#fff;border:1px solid var(--border);border-radius:20px;transition:.4s}
+.about-meta-item:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.about-meta-item .icon{font-size:1.8rem;margin-bottom:10px;display:block}
+.about-meta-item b{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;display:block;color:var(--accent)}
+.about-meta-item span{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:40px}
+.rev{background:#fff;border:1px solid var(--border);border-radius:22px;padding:30px 26px;position:relative;transition:.5s;display:flex;flex-direction:column}
+.rev:hover{box-shadow:var(--shadow-lg);transform:translateY(-8px);border-color:transparent}
+.rev-stars{color:var(--gold);font-size:1rem;margin-bottom:10px;letter-spacing:2px}
+.rev p{font-size:.88rem;font-weight:300;margin-bottom:18px;flex:1;line-height:1.7;white-space:pre-wrap}
+.rev-author{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--border)}
+.rev-ava{width:40px;height:40px;border-radius:50%;background:linear-gradient(140deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#fff;font-size:.82rem;font-weight:700;flex-shrink:0}
+.rev-author b{display:block;font-size:.85rem;font-weight:600}
+.rev-author span{font-size:.7rem;color:var(--muted)}
+.rev-del{position:absolute;top:12px;right:12px;width:28px;height:28px;border:none;background:rgba(198,40,40,.1);color:var(--error);border-radius:50%;cursor:pointer;font-size:.85rem;display:none;align-items:center;justify-content:center}
+.rev-owner .rev-del{display:flex}
+.rev-empty,.rev-loading{text-align:center;padding:50px 20px;color:var(--muted);grid-column:1/-1;font-style:italic;font-size:.9rem}
+.rev-add-box{max-width:720px;margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:24px;padding:36px;text-align:center;box-shadow:var(--shadow)}
+.rev-add-box h3{font-size:1.5rem;margin-bottom:8px}
+.rev-add-box > p{color:var(--muted);font-size:.9rem;margin-bottom:22px;font-weight:300}
+.rev-add-box .btn{margin:0 auto}
+.rev-form{display:none;text-align:left;margin-top:24px}
+.rev-form.open{display:block}
+.stars-picker{display:flex;gap:6px;font-size:1.8rem;color:var(--border);cursor:pointer;justify-content:center;margin-bottom:20px}
+.stars-picker span{transition:.2s}
+.stars-picker span.active{color:var(--gold)}
+.chat-wrapper{max-width:800px;margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:26px;overflow:hidden;box-shadow:var(--shadow-lg)}
+.chat-header{padding:22px 28px;background:linear-gradient(135deg,var(--accent),#4a0e22);color:#fff;display:flex;align-items:center;gap:14px}
+.chat-header .ava{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center;font-size:1.3rem}
+.chat-header b{font-size:1.05rem;font-weight:600;display:block}
+.chat-header span{font-size:.78rem;opacity:.85}
+.chat-body{padding:22px 28px;min-height:340px;max-height:460px;overflow-y:auto;background:var(--bg);display:flex;flex-direction:column;gap:12px}
+.msg{max-width:78%;padding:13px 18px;border-radius:20px;font-size:.9rem;line-height:1.55;word-wrap:break-word}
+.msg-mine{align-self:flex-end;background:var(--accent);color:#fff;border-bottom-right-radius:6px}
+.msg-other{align-self:flex-start;background:#fff;color:var(--text);border:1px solid var(--border);border-bottom-left-radius:6px}
+.msg-admin{align-self:flex-start;background:linear-gradient(135deg,var(--gold),#d4a843);color:#fff;border-bottom-left-radius:6px;border:1px solid var(--gold)}
+.msg-time{font-size:.66rem;opacity:.7;margin-top:4px;display:block}
+.chat-input-row{padding:16px 20px;border-top:1px solid var(--border);display:flex;gap:10px;background:#fff}
+.chat-input-row input{flex:1;padding:14px 20px;border:1px solid var(--border);border-radius:40px;font-family:'Montserrat',sans-serif;font-size:16px;outline:none;background:var(--bg);transition:.3s}
+.chat-input-row input:focus{border-color:var(--accent);background:#fff}
+.chat-send{padding:14px 26px;background:var(--accent);color:#fff;border:none;border-radius:40px;font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:.3s}
+.chat-send:hover{transform:translateY(-2px)}
+.chat-locked{padding:60px 30px;text-align:center;color:var(--muted)}
+.chat-locked h3{color:var(--text);margin-bottom:12px;font-size:1.5rem}
+.chat-locked p{font-size:.9rem;margin-bottom:22px}
+.cta-box{background:linear-gradient(135deg,var(--accent) 0%,#4a0e22 100%);border-radius:32px;padding:80px 50px;text-align:center;color:#fff;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.cta-box::after{content:'🌹';position:absolute;font-size:20rem;opacity:.08;right:-60px;bottom:-100px;transform:rotate(-15deg);pointer-events:none}
+.cta-box > *{position:relative;z-index:1}
+.cta-box .eyebrow{color:var(--accent-2);justify-content:center}
+.cta-box .eyebrow::before{background:var(--accent-2)}
+.cta-box h2{font-size:clamp(2rem,4.5vw,3.2rem);color:#fff}
+.cta-box p{max-width:560px;margin:20px auto 36px;opacity:.88;font-weight:300;font-size:1rem}
+footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-index:1}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:44px}
+.foot-grid h4{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-2);margin-bottom:18px;font-weight:600}
+.foot-grid ul{list-style:none}
+.foot-grid li{margin-bottom:10px}
+.foot-grid a{color:#d5c8cc;text-decoration:none;font-size:.85rem;font-weight:300;transition:.3s;cursor:pointer}
+.foot-grid a:hover{color:var(--accent-2)}
+.foot-about p{font-size:.85rem;color:#a89ba0;font-weight:300;max-width:300px;margin-top:16px}
+.foot-about .logo-text b{color:#fff}
+.foot-about .logo-text span{color:#a89ba0}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:26px;display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:#a89ba0;flex-wrap:wrap;gap:14px}
+.inner-hero{padding:70px 0 44px;text-align:center;position:relative;overflow:hidden}
+.inner-hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(201,139,161,.35),transparent 70%);opacity:.7;pointer-events:none}
+.inner-hero h1{font-size:clamp(2.2rem,5vw,4rem);position:relative}
+.inner-hero p{color:var(--muted);font-weight:300;max-width:580px;margin:18px auto 0;position:relative}
+.inner-hero .eyebrow{justify-content:center}
+.back-link{display:inline-flex;align-items:center;gap:8px;color:var(--muted);text-decoration:none;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;margin-bottom:26px;transition:.3s;padding:8px 0;cursor:pointer}
+.back-link:hover{color:var(--accent)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-bottom:70px}
+.step{background:#fff;border:1px solid var(--border);border-radius:22px;padding:32px 24px;transition:.5s}
+.step:hover{transform:translateY(-8px);box-shadow:var(--shadow);border-color:transparent}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:600;color:var(--accent-2);line-height:1;margin-bottom:14px;display:block}
+.step h3{font-size:1.25rem;margin-bottom:10px;font-weight:600}
+.step p{font-size:.85rem;color:var(--muted);font-weight:300}
+.deadline-banner{max-width:880px;margin:0 auto 50px;background:linear-gradient(135deg,rgba(184,145,47,.14),rgba(184,145,47,.05));border:1px solid rgba(184,145,47,.35);border-radius:26px;padding:32px 40px;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center}
+.deadline-icon{font-family:'Cormorant Garamond',serif;font-size:3.8rem;font-weight:600;color:var(--accent)}
+.deadline-text h3{font-size:clamp(1.3rem,2.4vw,1.7rem);margin-bottom:8px}
+.deadline-text p{font-size:.92rem;color:var(--muted);font-weight:300}
+.form-wrapper{max-width:860px;margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:32px;padding:56px 50px;box-shadow:var(--shadow-lg)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+.form-field{display:block}
+.form-field.full{grid-column:1/-1}
+.form-field > span{display:block;font-size:.74rem;font-weight:600;letter-spacing:.1em;margin-bottom:10px;text-transform:uppercase}
+.form-field .req{color:var(--accent);margin-left:3px}
+.form-field input,.form-field textarea{width:100%;padding:16px 22px;border:1px solid var(--border);border-radius:14px;background:var(--bg);font-family:'Montserrat',sans-serif;font-size:16px;color:var(--text);outline:none;transition:.3s}
+.form-field input:focus,.form-field textarea:focus{border-color:var(--accent);background:#fff}
+.form-field textarea{resize:vertical;min-height:120px;line-height:1.6}
+.form-submit{display:block;margin:36px auto 0;padding:18px 56px;background:var(--accent);color:#fff;border:none;border-radius:44px;font-family:'Montserrat',sans-serif;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:.4s;box-shadow:0 22px 45px -16px var(--accent)}
+.form-submit:hover{transform:translateY(-4px)}
+.form-submit:disabled{opacity:.6;cursor:wait}
+.form-note{text-align:center;font-size:.8rem;color:var(--muted);margin-top:22px;font-weight:300}
+.form-note b{color:var(--text);font-weight:500}
+.two-cols{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-bottom:50px}
+.info-card{background:#fff;border:1px solid var(--border);border-radius:26px;padding:44px 38px;transition:.5s;position:relative}
+.info-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:transparent}
+.info-card-icon{width:70px;height:70px;border-radius:22px;background:linear-gradient(135deg,var(--accent),var(--accent-light));display:grid;place-items:center;font-size:1.9rem;margin-bottom:24px;box-shadow:0 18px 35px -14px var(--accent)}
+.info-card h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:10px}
+.info-card .sub{color:var(--muted);font-size:.92rem;font-weight:300;margin-bottom:26px}
+.info-list{list-style:none}
+.info-list li{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--border);font-size:.93rem;font-weight:300}
+.info-list li:last-child{border-bottom:none}
+.info-list .check{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:rgba(201,139,161,.18);display:grid;place-items:center;font-size:.85rem;color:var(--accent);margin-top:2px}
+.info-list .check.accent{background:var(--accent);color:#fff}
+.info-list .check.ok{background:rgba(74,124,89,.18);color:#4a7c59}
+.info-list .check.bad{background:rgba(168,50,63,.15);color:#a8323f}
+.info-list .check.warn{background:rgba(184,145,47,.2);color:var(--gold)}
+.info-list b{color:var(--text);font-weight:500}
+.highlight-box{background:linear-gradient(135deg,var(--accent) 0%,#4a0e22 100%);color:#fff;border-radius:28px;padding:50px 46px;display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;margin-bottom:50px;box-shadow:var(--shadow-lg)}
+.highlight-num{font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:600;line-height:1}
+.highlight-num small{font-size:2rem;display:block;opacity:.85;margin-top:4px}
+.highlight-text h3{font-size:clamp(1.6rem,3vw,2.2rem);color:#fff;margin-bottom:14px}
+.highlight-text p{opacity:.92;font-weight:300;font-size:.98rem}
+.city-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.city-tag{background:var(--bg-alt);border:1px solid var(--border);border-radius:30px;padding:9px 20px;font-size:.78rem;font-weight:500}
+.city-tag.primary{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600}
+.care-intro{max-width:760px;margin:0 auto 60px;text-align:center;font-size:1.05rem;color:var(--muted);font-weight:300}
+.care-intro b{color:var(--text);font-weight:500}
+.care-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-bottom:28px}
+.care-card{background:#fff;border:1px solid var(--border);border-radius:26px;padding:44px 38px;transition:.5s}
+.care-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.care-card.danger{border-top:4px solid #a8323f}
+.care-card.ok{border-top:4px solid #4a7c59}
+.care-tips{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:28px}
+.tip{background:#fff;border:1px solid var(--border);border-radius:22px;padding:30px 24px;text-align:center;transition:.5s}
+.tip:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.tip .emoji{font-size:2.2rem;display:block;margin-bottom:14px}
+.tip h4{font-size:1.25rem;font-weight:600;margin-bottom:10px}
+.tip p{font-size:.85rem;color:var(--muted);font-weight:300}
+.gallery-note{max-width:860px;margin:50px auto 0;background:linear-gradient(135deg,#fff,var(--cream));border:1px solid var(--border);border-radius:24px;padding:40px 44px;text-align:center;box-shadow:var(--shadow)}
+.gallery-note h3{font-size:1.7rem;margin-bottom:12px}
+.gallery-note p{font-size:.94rem;color:var(--muted);font-weight:300;margin-bottom:24px}
+.info-note{max-width:800px;margin:60px auto 0;background:linear-gradient(135deg,var(--bg-alt),rgba(245,236,232,.5));border:1px solid var(--border);border-radius:24px;padding:36px 40px;font-size:.92rem;color:var(--muted);font-weight:300;text-align:center}
+.info-note b{color:var(--text);font-weight:600}
+.info-note a{color:var(--accent);font-weight:500;text-decoration:none;border-bottom:1px solid currentColor;cursor:pointer}
+.page{display:none}
+.page.active{display:block}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+.reveal.in{opacity:1;transform:none}
+.admin-tabs{display:flex;gap:8px;margin-bottom:30px;flex-wrap:wrap;justify-content:center;background:var(--bg-alt);padding:6px;border-radius:44px;max-width:600px;margin-left:auto;margin-right:auto}
+.admin-tab{padding:12px 26px;border:none;background:transparent;border-radius:34px;font-family:'Montserrat',sans-serif;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--muted);cursor:pointer;transition:.3s}
+.admin-tab.active{background:#fff;color:var(--accent);box-shadow:0 4px 14px -6px rgba(0,0,0,.15)}
+.admin-panel{display:none}
+.admin-panel.active{display:block}
+.admin-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:40px}
+.admin-stat{background:#fff;border:1px solid var(--border);border-radius:20px;padding:26px;text-align:center}
+.admin-stat b{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;color:var(--accent);display:block;line-height:1}
+.admin-stat span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500;display:block;margin-top:8px}
+.admin-chats{display:grid;grid-template-columns:300px 1fr;gap:0;background:#fff;border:1px solid var(--border);border-radius:22px;overflow:hidden;min-height:500px}
+.admin-chat-list{border-right:1px solid var(--border);overflow-y:auto;max-height:600px;background:var(--bg)}
+.admin-chat-item{padding:18px 20px;border-bottom:1px solid var(--border);cursor:pointer;transition:.2s}
+.admin-chat-item:hover{background:var(--bg-alt)}
+.admin-chat-item.active{background:#fff;border-left:3px solid var(--accent)}
+.admin-chat-item b{display:block;font-size:.9rem;font-weight:600;margin-bottom:4px;color:var(--text)}
+.admin-chat-item span{font-size:.75rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block}
+.admin-chat-view{display:flex;flex-direction:column;max-height:600px}
+.admin-chat-view-header{padding:18px 22px;border-bottom:1px solid var(--border);background:var(--bg-alt)}
+.admin-chat-view-header b{font-size:1rem;display:block}
+.admin-chat-view-header span{font-size:.78rem;color:var(--muted)}
+.admin-chat-messages{flex:1;padding:20px 22px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;background:#fff;min-height:300px}
+.admin-chat-input{padding:14px 18px;border-top:1px solid var(--border);display:flex;gap:10px}
+.admin-chat-input input{flex:1;padding:13px 20px;border:1px solid var(--border);border-radius:40px;font-family:'Montserrat',sans-serif;font-size:15px;outline:none;background:var(--bg)}
+.admin-chat-input input:focus{border-color:var(--accent);background:#fff}
+.admin-chat-input button{padding:13px 24px;background:var(--accent);color:#fff;border:none;border-radius:40px;font-family:'Montserrat',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:.3s}
+.admin-chat-empty{padding:60px 30px;text-align:center;color:var(--muted);font-style:italic}
+.admin-orders{display:grid;gap:16px}
+.admin-order{background:#fff;border:1px solid var(--border);border-radius:20px;padding:24px 28px}
+.admin-order-header{display:flex;justify-content:space-between;align-items:start;margin-bottom:14px;flex-wrap:wrap;gap:10px}
+.admin-order-header h4{font-size:1.2rem;font-weight:600;color:var(--accent)}
+.admin-order-header span{font-size:.74rem;color:var(--muted)}
+.admin-order-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}
+.admin-order-info div{font-size:.88rem}
+.admin-order-info b{color:var(--muted);font-weight:500;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:2px}
+.admin-order-actions{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
+.admin-order-actions a,.admin-order-actions button{padding:9px 18px;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--border);background:#fff;color:var(--text);cursor:pointer;transition:.3s;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.admin-order-actions a:hover,.admin-order-actions button:hover{border-color:var(--accent);color:var(--accent)}
+.admin-order-actions .btn-danger{color:var(--error)}
+.admin-order-actions .btn-danger:hover{border-color:var(--error);color:var(--error)}
+.admin-empty{padding:60px 20px;text-align:center;color:var(--muted);font-style:italic}
+.admin-reviews{display:grid;gap:16px}
+.admin-review{background:#fff;border:1px solid var(--border);border-radius:20px;padding:24px 28px}
+.admin-review-header{display:flex;justify-content:space-between;align-items:start;margin-bottom:12px;gap:12px;flex-wrap:wrap}
+.admin-review-header b{font-size:.95rem;font-weight:600}
+.admin-review-header span{font-size:.74rem;color:var(--muted)}
+.admin-review-stars{color:var(--gold);font-size:.95rem;letter-spacing:2px;margin-bottom:10px}
+.admin-review p{font-size:.9rem;font-weight:300;line-height:1.7;margin-bottom:14px;white-space:pre-wrap}
+.admin-review button{padding:8px 18px;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--error);background:#fff;color:var(--error);cursor:pointer}
+.admin-review button:hover{background:var(--error);color:#fff}
+.modal-overlay{position:fixed;inset:0;background:rgba(28,20,23,.6);backdrop-filter:blur(8px);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.auth-modal{background:#fff;border-radius:28px;padding:44px 40px;max-width:440px;width:100%;box-shadow:0 40px 100px -30px rgba(0,0,0,.5);position:relative;max-height:90vh;overflow-y:auto}
+.modal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;border:none;background:var(--bg-alt);cursor:pointer;font-size:1.1rem;display:grid;place-items:center;transition:.3s}
+.modal-close:hover{background:var(--border)}
+.auth-modal h2{font-size:1.9rem;margin-bottom:6px;text-align:center}
+.auth-modal .sub{font-size:.86rem;color:var(--muted);text-align:center;margin-bottom:26px;font-weight:300}
+.auth-tabs{display:flex;gap:6px;margin-bottom:24px;background:var(--bg-alt);padding:5px;border-radius:40px}
+.auth-tab{flex:1;padding:12px 16px;border:none;background:transparent;cursor:pointer;border-radius:34px;font-family:'Montserrat',sans-serif;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--muted);transition:.3s}
+.auth-tab.active{background:#fff;color:var(--accent);box-shadow:0 4px 14px -6px rgba(0,0,0,.15)}
+.auth-form{display:none}
+.auth-form.active{display:block}
+.auth-field{margin-bottom:14px}
+.auth-field label{display:block;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.auth-field input{width:100%;padding:15px 20px;border:1px solid var(--border);border-radius:12px;font-family:'Montserrat',sans-serif;font-size:16px;outline:none;background:var(--bg);transition:.3s}
+.auth-field input:focus{border-color:var(--accent);background:#fff}
+.auth-submit{width:100%;padding:16px;margin-top:8px;background:var(--accent);color:#fff;border:none;border-radius:44px;font-family:'Montserrat',sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:.35s;box-shadow:0 16px 34px -14px var(--accent)}
+.auth-submit:hover{transform:translateY(-3px)}
+.auth-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.auth-msg{text-align:center;font-size:.82rem;margin-top:14px;min-height:20px;font-weight:500}
+.auth-msg.error{color:var(--error)}
+.auth-msg.success{color:var(--success)}
+.auth-hint{font-size:.72rem;color:var(--muted);text-align:center;margin-top:12px}
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--text);color:#fff;padding:16px 28px;border-radius:40px;font-size:.85rem;font-weight:500;z-index:2000;transition:transform .4s;box-shadow:0 20px 40px -12px rgba(0,0,0,.4);max-width:90vw;text-align:center}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.toast.success{background:var(--success)}
+.toast.error{background:var(--error)}
+@media (max-width:980px){
+  :root{--header-h:68px}
+  nav ul,.nav-cta,.btn-auth{display:none}
+  .user-chip .name{display:none}
+  .user-chip{padding:5px}
+  .menu-toggle{display:flex}
+  .mobile-menu{display:block}
+  .user-dropdown{right:18px}
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .hero-photo-wrap{max-width:380px;margin:0 auto}
+  .adv-grid,.rev-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-preview,.gallery-full{grid-template-columns:repeat(2,1fr)}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  section{padding:60px 0}
+  .cta-box{padding:50px 28px}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .two-cols,.care-grid{grid-template-columns:1fr}
+  .care-tips{grid-template-columns:repeat(2,1fr)}
+  .highlight-box{grid-template-columns:1fr;gap:18px;padding:40px 32px}
+  .form-wrapper{padding:40px 32px}
+  .form-row{grid-template-columns:1fr}
+  .deadline-banner{grid-template-columns:1fr;gap:14px;padding:30px 26px;text-align:center}
+  .admin-chats{grid-template-columns:1fr}
+  .admin-chat-list{border-right:none;border-bottom:1px solid var(--border);max-height:220px}
+  .admin-stats{grid-template-columns:1fr}
+}
+@media (max-width:620px){
+  .container{padding:0 18px}
+  :root{--header-h:64px}
+  .logo-mark{width:40px;height:40px}
+  .logo-text b{font-size:1.05rem}
+  .logo-text span{display:none}
+  .menu-toggle{width:42px;height:42px}
+  section{padding:50px 0}
+  .section-head{margin-bottom:36px}
+  .section-head h2{font-size:1.85rem}
+  .marquee{padding:14px 0}
+  .marquee-item{font-size:1.1rem;padding:0 18px;gap:18px}
+  .hero{padding:40px 0 54px}
+  .hero h1{font-size:clamp(2rem,9vw,2.6rem)}
+  .hero-btns{flex-direction:column;gap:10px;margin-top:28px}
+  .hero-btns .btn{width:100%;padding:16px 24px}
+  .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:34px;text-align:center}
+  .hero-stats .stat b{font-size:1.5rem}
+  .hero-stats .stat span{font-size:.56rem}
+  .hero-photo{font-size:6rem;border-radius:160px 160px 16px 16px}
+  .photo-badge{padding:10px 14px;bottom:12px;right:-10px;border-radius:14px}
+  .photo-badge b{font-size:1.2rem}
+  .photo-badge span{font-size:.55rem;letter-spacing:.1em}
+  .hero-note{margin-top:28px;padding:16px 20px;font-size:.82rem}
+  .adv-grid,.rev-grid,.gallery-preview,.gallery-full,.steps,.care-tips,.about-meta{grid-template-columns:1fr}
+  .price-banner{flex-direction:column}
+  .price-item{padding:20px 22px}
+  .price-item:not(:last-child)::after{display:none}
+  .price-item:not(:last-child){border-bottom:1px solid var(--border)}
+  .cta-box{padding:44px 22px}
+  .cta-box h2{font-size:1.6rem}
+  .cta-box .btn{width:100%;padding:16px 24px}
+  .form-wrapper{padding:30px 20px}
+  .auth-modal{padding:36px 26px}
+  .foot-grid{grid-template-columns:1fr;gap:28px}
+  .foot-bottom{flex-direction:column;text-align:center;gap:10px}
+  .chat-wrapper{border-radius:20px}
+  .chat-body{padding:16px 18px}
+  .chat-input-row{padding:12px 14px;flex-direction:column}
+  .chat-send{width:100%}
+  .admin-tabs{flex-direction:column;gap:4px;border-radius:20px}
+  .admin-tab{width:100%}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#home" class="logo">
+      <div class="logo-mark"><img src="https://sun9-39.vkuserphoto.ru/s/v1/ig2/2IUGzBjw6Aze9BUu_dVHzhA0FyMtL2c25AVExbxj7-TKqSCaM0VjRbL4llg0bYk42Cb28le18V6O6TdQdWGLpX_H.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&u=eI0um_PKOxa-miIOKuGYnAoV4hIjq9OOBKTyYT9qfIE&cs=1254x0" alt="ATELIER ROSE"></div>
+      <div class="logo-text"><b>ATELIER ROSE</b><span>букеты из атласных лент</span></div>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#gallery" data-nav>Работы</a></li>
+        <li><a href="#about" data-nav>О мастере</a></li>
+        <li><a href="#order" data-nav>Заказать</a></li>
+        <li><a href="#delivery" data-nav>Доставка</a></li>
+        <li><a href="#care" data-nav>Уход</a></li>
+        <li><a href="#chat" data-nav>Чат</a></li>
+        <li id="navAdminLi" style="display:none;"><a href="#admin" data-nav>👑 Админ</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions" id="navActions">
+      <a href="#order" class="nav-cta">Заказать</a>
+      <button class="btn-auth" id="loginBtn">Войти</button>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="user-dropdown" id="userDropdown">
+  <div class="drop-head"><b id="ddName">Пользователь</b><span id="ddEmail">—</span></div>
+  <a href="#chat" data-nav>💬 Чат со мной</a>
+  <a href="#reviews" data-nav>⭐ Мои отзывы</a>
+  <a href="#admin" data-nav id="ddAdmin" style="display:none;">👑 Админ-панель</a>
+  <button id="logoutBtn">🚪 Выйти</button>
+</div>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#gallery" data-nav>Работы</a></li>
+    <li><a href="#about" data-nav>О мастере</a></li>
+    <li><a href="#order" data-nav>Заказать</a></li>
+    <li><a href="#delivery" data-nav>Доставка</a></li>
+    <li><a href="#care" data-nav>Уход</a></li>
+    <li><a href="#chat" data-nav>Чат</a></li>
+    <li id="navAdminLiMobile" style="display:none;"><a href="#admin" data-nav>👑 Админ</a></li>
+  </ul>
+  <a href="#order" class="mobile-cta">Оставить заявку</a>
+  <button class="mobile-auth" id="mobileLoginBtn">Войти / Регистрация</button>
+</div>
+
+<main id="page-home" class="page active">
+  <section class="hero">
+    <div class="hero-deco hero-deco-1"></div>
+    <div class="hero-deco hero-deco-2"></div>
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Соликамск · Березники · Пермский край</div>
+        <h1>Букеты, которые<br><em>никогда не завянут</em></h1>
+        <p class="lead">Авторские букеты из атласных лент ручной работы. Каждый лепесток скручен вручную — с любовью и вниманием к деталям.</p>
+        <div class="hero-btns">
+          <a href="#gallery" class="btn btn-primary">Смотреть работы →</a>
+          <a href="#order" class="btn btn-ghost">Оставить заявку</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b>10+</b><span>работ</span></div>
+          <div class="stat"><b>1 год</b><span>опыта</span></div>
+          <div class="stat"><b>75 ₽</b><span>за розу</span></div>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <div class="hero-photo"><span>💐</span></div>
+        <div class="photo-badge"><b>5–7</b><span>дней на заказ</span></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="hero-note reveal">⏳ Рекомендую заказывать букет <b>за 2–3 недели до события</b> — так я успею закупить нужные ленты и спокойно собрать его без спешки.</div>
+    </div>
+  </section>
+
+  <div class="marquee"><div class="marquee-track">
+    <span class="marquee-item">100% ручная работа</span><span class="marquee-item">не вянут годами</span><span class="marquee-item">бесплатная доставка</span><span class="marquee-item">75 ₽ за розу</span><span class="marquee-item">5–7 дней на изготовление</span>
+    <span class="marquee-item">100% ручная работа</span><span class="marquee-item">не вянут годами</span><span class="marquee-item">бесплатная доставка</span><span class="marquee-item">75 ₽ за розу</span><span class="marquee-item">5–7 дней на изготовление</span>
+  </div></div>
+
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-head reveal"><div class="eyebrow">Почему меня выбирают</div><h2>Сделано с душой</h2><div class="divider center"></div></div>
+      <div class="adv-grid">
+        <div class="adv reveal"><div class="adv-icon">🖐️</div><h3>Ручная работа</h3><p>Никакого конвейера — каждый лепесток формируется вручную.</p></div>
+        <div class="adv reveal"><div class="adv-icon">♾️</div><h3>Не вянут годами</h3><p>Атлас сохраняет форму и цвет — букет останется памятью надолго.</p></div>
+        <div class="adv reveal"><div class="adv-icon">🎨</div><h3>Под ваш запрос</h3><p>Любой оттенок, размер и состав — соберу букет под ваш повод.</p></div>
+        <div class="adv reveal"><div class="adv-icon">🚚</div><h3>Доставка 0 ₽</h3><p>По Пермскому краю — Соликамск, Березники и другие города.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery-preview">
+    <div class="container">
+      <div class="section-head reveal"><div class="eyebrow">Портфолио</div><h2>Мои лучшие работы</h2><div class="divider center"></div><p>Готовых букетов нет — каждая работа создаётся на заказ.</p></div>
+      <div class="price-banner reveal">
+        <div class="price-item"><b>75 ₽</b><span>одна роза</span></div>
+        <div class="price-item"><b>5–7 дней</b><span>на изготовление</span></div>
+        <div class="price-item"><b>0 ₽</b><span>доставка по краю</span></div>
+      </div>
+      <div class="gallery-preview">
+        <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-41.vkuserphoto.ru/s/v1/ig2/8Y2vwyv0Ceyn6n3_b5nQPc-F_9qdPdMnBZwVu9CzoIf5R374C9haIy67bZr3bX_3reezRd6jpqPSdbwXrJx4TIWx.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&u=ymsOhPUTEtY8rfZwJlY0T1oQgQZ-txaTXtghBY19Ms0&cs=1280x0" alt="Букет"></div>
+        <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-11.vkuserphoto.ru/s/v1/ig2/28tIE9G7j8HT527dc_iZAQTHhal5htYmbz0Cm-SFEZT1EeprRUXb-Vi20uRfRTdIocXR2yiTMq_d3bDx06YF73il.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&u=DEd_jYQTpX7yYQvykxBKCAzC5fhIP6hLk4Q1s-xqQDo&cs=1280x0" alt="Букет"></div>
+        <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-50.vkuserphoto.ru/s/v1/ig2/KWdq1p9aIP5gv67uf-aEKpFrVyAklg9wO3gXt7Uxp7DU77VMI6vT_09RZpOf65CJl02D45KeNd5AJycsAlSfz66K.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&u=SZNZNw698-v4Tj22n9LHg4M9NUNUd94qei1OJR05bJI&cs=1280x0" alt="Букет"></div>
+      </div>
+      <div class="gallery-cta reveal" style="margin-top:44px;"><a href="#gallery" class="btn btn-primary">Смотреть всё портфолио →</a></div>
+      <p class="catalog-note">Стоимость рассчитывается индивидуально — зависит от количества роз, оттенка и декора.</p>
+    </div>
+  </section>
+
+  <section id="about" class="section-alt">
+    <div class="container">
+      <div class="about-hero reveal">
+        <div class="eyebrow" style="justify-content:center;">О мастере</div>
+        <h2>Привет, меня зовут <em>Ярослав</em></h2>
+        <p>Уже год я создаю букеты из атласных лент. Началось всё с одного букета для близкого человека — а превратилось в дело, которому я отдаю всю душу.</p>
+        <p>Я не использую шаблоны: каждый букет собирается <b>индивидуально</b> под ваш повод, настроение и цветовую палитру.</p>
+        <div class="about-signature">Ярослав</div>
+      </div>
+      <div class="about-meta reveal">
+        <div class="about-meta-item"><span class="icon">🌹</span><b>10+</b><span>работ создано</span></div>
+        <div class="about-meta-item"><span class="icon">✨</span><b>100%</b><span>ручная работа</span></div>
+        <div class="about-meta-item"><span class="icon">🎁</span><b>5–7</b><span>дней на заказ</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="container">
+      <div class="section-head reveal"><div class="eyebrow">Отзывы</div><h2>Что говорят клиенты</h2><div class="divider center"></div><p>Живые отзывы, которые оставляют сами покупатели</p></div>
+      <div class="rev-grid" id="revGrid"><div class="rev-loading">Загружаю отзывы...</div></div>
+      <div class="rev-add-box reveal">
+        <h3>Оставить отзыв</h3>
+        <p>Ваш отзыв появится на сайте сразу после публикации</p>
+        <button class="btn btn-primary" id="openReviewBtn">Написать отзыв</button>
+        <form class="rev-form" id="revForm">
+          <div class="stars-picker" id="starsPicker"><span data-star="1">★</span><span data-star="2">★</span><span data-star="3">★</span><span data-star="4">★</span><span data-star="5">★</span></div>
+          <div class="form-row"><label class="form-field full"><span>Ваш отзыв <b class="req">*</b></span><textarea id="revText" placeholder="Расскажите о букете..." maxlength="500" required></textarea></label></div>
+          <button type="submit" class="form-submit" id="revSubmit">Опубликовать отзыв</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts">
+    <div class="container">
+      <div class="cta-box reveal">
+        <div class="eyebrow">Готовы заказать?</div>
+        <h2>Соберу букет<br>специально для вас</h2>
+        <p>Оставьте заявку на сайте — свяжусь с вами в течение 3 часов.</p>
+        <a href="#order" class="btn btn-white">Оставить заявку →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<main id="page-gallery" class="page">
+  <section class="inner-hero"><div class="container"><a href="#home" class="back-link" data-nav>← На главную</a><div class="eyebrow">Портфолио</div><h1>Мои работы</h1><div class="divider center"></div><p>Готовых букетов нет — каждая работа создаётся на заказ.</p></div></section>
+  <section style="padding-top:20px;"><div class="container">
+    <div class="gallery-full">
+      <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-41.vkuserphoto.ru/s/v1/ig2/8Y2vwyv0Ceyn6n3_b5nQPc-F_9qdPdMnBZwVu9CzoIf5R374C9haIy67bZr3bX_3reezRd6jpqPSdbwXrJx4TIWx.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&u=ymsOhPUTEtY8rfZwJlY0T1oQgQZ-txaTXtghBY19Ms0&cs=1280x0" alt="Букет"></div>
+      <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-11.vkuserphoto.ru/s/v1/ig2/28tIE9G7j8HT527dc_iZAQTHhal5htYmbz0Cm-SFEZT1EeprRUXb-Vi20uRfRTdIocXR2yiTMq_d3bDx06YF73il.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&u=DEd_jYQTpX7yYQvykxBKCAzC5fhIP6hLk4Q1s-xqQDo&cs=1280x0" alt="Букет"></div>
+      <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-50.vkuserphoto.ru/s/v1/ig2/KWdq1p9aIP5gv67uf-aEKpFrVyAklg9wO3gXt7Uxp7DU77VMI6vT_09RZpOf65CJl02D45KeNd5AJycsAlSfz66K.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&u=SZNZNw698-v4Tj22n9LHg4M9NUNUd94qei1OJR05bJI&cs=1280x0" alt="Букет"></div>
+      <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-59.vkuserphoto.ru/s/v1/ig2/exey92RcwB_cpmYptmu_DYce5ZjGFsgLhIoe45v5hkoCaiXI_aL-9DBzD04rIT75fSWR3oKfyY5IB1g3LvfriWiC.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1280x0" alt="Букет"></div>
+      <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-31.vkuserphoto.ru/s/v1/ig2/SWbjnhmmpO_o1xVQjvOxQ3UMSzW9degWhfHc6LYIMN5hBI99E94jfzLG9S1dIoOmQnqdRLhgmJ8uL7UdjEWuilFu.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1439,1280x1706&from=bu&cs=1280x0" alt="Букет"></div>
+      <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-39.vkuserphoto.ru/s/v1/ig2/5UIFVkpU70g9eaNHvXP1Lv15LppZQBFRC3nbl4GvqT8iZojjIhp_B1PRez8_rEJF0snz0zaFr_vCDH6kqOrN3FV4.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1280x0" alt="Букет"></div>
+      <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-16.vkuserphoto.ru/s/v1/ig2/1fU7QS1S1ASXcfi9QH8lYptnRZ1NWr5p_vSVXnM1u9vwABR8WrbFu36lIhurpsq_6FnREtNNcxmbR3Kj04eLYqMU.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1280x0" alt="Букет"></div>
+    </div>
+    <div class="gallery-note reveal"><h3>Хотите похожий букет?</h3><p>Любую работу можно повторить в другом оттенке, размере и составе.</p><a href="#order" class="btn btn-primary">Оставить заявку →</a></div>
+  </div></section>
+</main>
+
+<main id="page-order" class="page">
+  <section class="inner-hero"><div class="container"><a href="#home" class="back-link" data-nav>← На главную</a><div class="eyebrow">Заказ букета</div><h1>Оставить заявку</h1><div class="divider center"></div><p>Заполните форму — я свяжусь с вами в течение 3 часов.</p></div></section>
+  <section style="padding-top:20px;"><div class="container">
+    <div class="deadline-banner reveal"><div class="deadline-icon">⏳</div><div class="deadline-text"><h3>Желательно заказывать за 2–3 недели до события</h3><p>Это не обязательное условие, но очень желательное — так я успею закупить материалы и собрать букет без спешки.</p></div></div>
+    <div class="steps">
+      <div class="step reveal"><div class="step-num">01</div><h3>Оставляете заявку</h3><p>Заполняете форму — я получаю её сразу.</p></div>
+      <div class="step reveal"><div class="step-num">02</div><h3>Связываюсь за 3 часа</h3><p>Обсуждаем количество роз, оттенок, декор, дату.</p></div>
+      <div class="step reveal"><div class="step-num">03</div><h3>Подтверждаете заказ</h3><p>Согласуем стоимость, вносите предоплату 50%.</p></div>
+      <div class="step reveal"><div class="step-num">04</div><h3>Получаете букет</h3><p>Готовлю за 5–7 дней. Доставка по краю бесплатно.</p></div>
+    </div>
+    <div class="contacts-title reveal"><div class="eyebrow">Заявка на букет</div><h2>Заполните форму</h2><div class="divider center"></div></div>
+    <form class="form-wrapper reveal" id="orderForm" action="https://formsubmit.co/atelier.rose@mail.ru" method="POST">
+      <input type="hidden" name="_subject" value="🌹 Новая заявка — ATELIER ROSE">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="true">
+      <input type="text" name="_honey" style="display:none">
+      <div class="form-row">
+        <label class="form-field"><span>Ваше имя <b class="req">*</b></span><input type="text" name="Имя" id="orderName" placeholder="Как к вам обращаться" required></label>
+        <label class="form-field"><span>Телефон <b class="req">*</b></span><input type="tel" name="Телефон" id="orderPhone" placeholder="+7 ___ ___-__-__" required></label>
+      </div>
+      <div class="form-row">
+        <label class="form-field"><span>Город <b class="req">*</b></span><input type="text" name="Город" id="orderCity" placeholder="Соликамск, Березники..." required></label>
+        <label class="form-field"><span>К какой дате нужен букет</span><input type="text" name="Дата" id="orderDate" placeholder="например, 8 марта"></label>
+      </div>
+      <div class="form-row">
+        <label class="form-field"><span>Количество роз</span><input type="text" name="Количество" id="orderQty" placeholder="7 или «посоветуйте»"></label>
+        <label class="form-field"><span>Оттенок / пожелания</span><input type="text" name="Оттенок" id="orderColor" placeholder="пудровый, бордо, белый..."></label>
+      </div>
+      <div class="form-row"><label class="form-field full"><span>Комментарий</span><textarea name="Комментарий" id="orderComment" placeholder="Повод, особые пожелания"></textarea></label></div>
+      <button type="submit" class="form-submit" id="orderSubmit">Отправить заявку</button>
+      <p class="form-note">Свяжусь с вами <b>в течение 3 часов</b> по указанному телефону</p>
+    </form>
+    <div class="info-note reveal"><p><b>Одна роза — 75 ₽.</b> Итоговая цена зависит от количества и декора. 🌹</p></div>
+  </div></section>
+</main>
+
+<main id="page-delivery" class="page">
+  <section class="inner-hero"><div class="container"><a href="#home" class="back-link" data-nav>← На главную</a><div class="eyebrow">Условия</div><h1>Доставка и оплата</h1><div class="divider center"></div><p>Предоплата 50%, доставка по Пермскому краю — бесплатно.</p></div></section>
+  <section style="padding-top:20px;"><div class="container">
+    <div class="highlight-box reveal"><div class="highlight-num">50%<small>предоплата</small></div><div class="highlight-text"><h3>Предоплата 50% от стоимости</h3><p>После согласования деталей вы вносите половину суммы. Остаток — при получении букета.</p></div></div>
+    <div class="two-cols">
+      <div class="info-card reveal"><div class="info-card-icon">🚚</div><h2>Доставка</h2><p class="sub">Бесплатно по Пермскому краю</p><ul class="info-list">
+        <li><span class="check accent">✓</span><span><b>По Пермскому краю — 0 ₽.</b></span></li>
+        <li><span class="check">✓</span><span><b>Соликамск и Березники</b> — привезу лично.</span></li>
+        <li><span class="check">✓</span><span><b>Кудымкар, Александровск, Красновишерск</b> и другие города.</span></li>
+        <li><span class="check warn">⏳</span><span><b>Заказывать за 2–3 недели</b> до события.</span></li>
+        <li><span class="check">✓</span><span><b>Срок изготовления</b> — 5–7 дней.</span></li>
+      </ul>
+      <div class="city-tags"><span class="city-tag primary">Соликамск</span><span class="city-tag primary">Березники</span><span class="city-tag">Кудымкар</span><span class="city-tag">Александровск</span><span class="city-tag">Красновишерск</span><span class="city-tag">и весь край</span></div>
+      </div>
+      <div class="info-card reveal"><div class="info-card-icon">💳</div><h2>Оплата</h2><p class="sub">Предоплата 50%, остаток при получении</p><ul class="info-list">
+        <li><span class="check accent">✓</span><span><b>Предоплата — 50%</b> от стоимости.</span></li>
+        <li><span class="check">✓</span><span><b>Остаток — при получении.</b></span></li>
+        <li><span class="check">✓</span><span><b>Перевод на карту.</b></span></li>
+        <li><span class="check">✓</span><span><b>По номеру телефона</b> — через СБП.</span></li>
+        <li><span class="check">✓</span><span><b>Наличными</b> — для Соликамска и Березников.</span></li>
+      </ul>
+      <div class="city-tags"><span class="city-tag primary">Карта</span><span class="city-tag primary">СБП</span><span class="city-tag">Наличные</span></div>
+      </div>
+    </div>
+  </div></section>
+</main>
+
+<main id="page-care" class="page">
+  <section class="inner-hero"><div class="container"><a href="#home" class="back-link" data-nav>← На главную</a><div class="eyebrow">Памятка</div><h1>Уход за букетом</h1><div class="divider center"></div><p>Пара простых правил — и букет будет радовать вас годами.</p></div></section>
+  <section style="padding-top:20px;"><div class="container">
+    <p class="care-intro reveal">Мои букеты сделаны из <b>атласных лент</b> и скреплены <b>термоклеем</b>. Это декоративное изделие — оно не требует воды и не завянет. Букет создан <b>украшать интерьер</b>.</p>
+    <div class="care-grid">
+      <div class="care-card danger reveal"><div class="info-card-icon">🚫</div><h2>Что нельзя</h2><p class="sub">Может испортить букет безвозвратно</p><ul class="info-list">
+        <li><span class="check bad">✕</span><span><b>Мочить и стирать.</b></span></li>
+        <li><span class="check bad">✕</span><span><b>Под прямые солнечные лучи.</b></span></li>
+        <li><span class="check bad">✕</span><span><b>Возле огня и обогревателей.</b></span></li>
+        <li><span class="check bad">✕</span><span><b>Тянуть, мять лепестки.</b></span></li>
+        <li><span class="check bad">✕</span><span><b>Спирт, ацетон, порошки.</b></span></li>
+        <li><span class="check bad">✕</span><span><b>Сушить феном, утюжить.</b></span></li>
+        <li><span class="check bad">✕</span><span><b>Прятать в шкаф.</b> Он создан для вида.</span></li>
+      </ul></div>
+      <div class="care-card ok reveal"><div class="info-card-icon">✓</div><h2>Как ухаживать</h2><p class="sub">Просто и быстро</p><ul class="info-list">
+        <li><span class="check ok">✓</span><span><b>Поставьте на видное место.</b></span></li>
+        <li><span class="check ok">✓</span><span><b>Очищайте сухой кистью.</b> Раз в 1–2 месяца.</span></li>
+        <li><span class="check ok">✓</span><span><b>Или феном на холодном режиме.</b></span></li>
+        <li><span class="check ok">✓</span><span><b>Салфетка из микрофибры.</b> Без нажима.</span></li>
+        <li><span class="check ok">✓</span><span><b>Достаточно 1 раза в 1–2 месяца.</b></span></li>
+        <li><span class="check ok">✓</span><span><b>Перевозите отдельно</b> от тяжёлых вещей.</span></li>
+      </ul></div>
+    </div>
+    <div class="care-tips">
+      <div class="tip reveal"><span class="emoji">🏠</span><h4>На видном месте</h4><p>Букет — это декор. Пусть украшает интерьер.</p></div>
+      <div class="tip reveal"><span class="emoji">🧹</span><h4>Пыль — раз в 1–2 месяца</h4><p>Сухая кисть или холодный фен.</p></div>
+      <div class="tip reveal"><span class="emoji">☀️</span><h4>Подальше от солнца</h4><p>Прямые лучи выцветают атлас.</p></div>
+    </div>
+  </div></section>
+</main>
+
+<main id="page-chat" class="page">
+  <section class="inner-hero"><div class="container"><a href="#home" class="back-link" data-nav>← На главную</a><div class="eyebrow">Обратная связь</div><h1>Чат со мной</h1><div class="divider center"></div><p>Задайте вопрос напрямую — я отвечу при первой возможности</p></div></section>
+  <section style="padding-top:20px;"><div class="container">
+    <div class="chat-wrapper">
+      <div class="chat-header"><div class="ava">🌹</div><div><b>Ярослав — ATELIER ROSE</b><span>обычно отвечаю в течение дня</span></div></div>
+      <div id="chatContent">
+        <div class="chat-locked"><h3>Войдите, чтобы написать</h3><p>Нужна бесплатная регистрация — 30 секунд</p><button class="btn btn-primary" id="chatLoginBtn">Войти / Регистрация</button></div>
+      </div>
+    </div>
+  </div></section>
+</main>
+
+<main id="page-admin" class="page">
+  <section class="inner-hero"><div class="container"><a href="#home" class="back-link" data-nav>← На главную</a><div class="eyebrow">Админ-панель</div><h1>👑 Управление</h1><div class="divider center"></div><p>Ваши чаты, заявки и отзывы в одном месте</p></div></section>
+  <section style="padding-top:20px;"><div class="container">
+    <div class="admin-stats" id="adminStats">
+      <div class="admin-stat"><b id="statChats">—</b><span>Диалогов</span></div>
+      <div class="admin-stat"><b id="statOrders">—</b><span>Заявок</span></div>
+      <div class="admin-stat"><b id="statReviews">—</b><span>Отзывов</span></div>
+    </div>
+    <div class="admin-tabs">
+      <button class="admin-tab active" data-atab="chats">💬 Чаты</button>
+      <button class="admin-tab" data-atab="orders">📋 Заявки</button>
+      <button class="admin-tab" data-atab="reviews">⭐ Отзывы</button>
+    </div>
+    <div class="admin-panel active" id="panel-chats">
+      <div class="admin-chats">
+        <div class="admin-chat-list" id="adminChatList"><div class="admin-empty">Загружаю...</div></div>
+        <div class="admin-chat-view" id="adminChatView"><div class="admin-chat-empty">Выберите диалог слева</div></div>
+      </div>
+    </div>
+    <div class="admin-panel" id="panel-orders">
+      <div class="admin-orders" id="adminOrders"><div class="admin-empty">Загружаю...</div></div>
+    </div>
+    <div class="admin-panel" id="panel-reviews">
+      <div class="admin-reviews" id="adminReviews"><div class="admin-empty">Загружаю...</div></div>
+    </div>
+  </div></section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-about">
+        <div class="logo"><div class="logo-mark"><img src="https://sun9-39.vkuserphoto.ru/s/v1/ig2/2IUGzBjw6Aze9BUu_dVHzhA0FyMtL2c25AVExbxj7-TKqSCaM0VjRbL4llg0bYk42Cb28le18V6O6TdQdWGLpX_H.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&u=eI0um_PKOxa-miIOKuGYnAoV4hIjq9OOBKTyYT9qfIE&cs=1254x0" alt="ATELIER ROSE"></div><div class="logo-text"><b>ATELIER ROSE</b><span>букеты из атласных лент</span></div></div>
+        <p>Авторские букеты из атласных лент. Соликамск, Березники, Кудымкар, Александровск, Красновишерск и весь Пермский край.</p>
+      </div>
+      <div><h4>Разделы</h4><ul><li><a href="#gallery" data-nav>Портфолио</a></li><li><a href="#about" data-nav>О мастере</a></li><li><a href="#reviews" data-nav>Отзывы</a></li></ul></div>
+      <div><h4>Информация</h4><ul><li><a href="#order" data-nav>Как заказать</a></li><li><a href="#delivery" data-nav>Доставка и оплата</a></li><li><a href="#care" data-nav>Уход</a></li></ul></div>
+      <div><h4>Общение</h4><ul><li><a href="#chat" data-nav>Чат со мной</a></li><li><a href="#reviews" data-nav>Оставить отзыв</a></li><li style="color:#a89ba0;font-size:.82rem;margin-top:6px;">Отвечаю в течение<br>3 часов</li></ul></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 ATELIER ROSE</span><span>Заказ — только через форму на сайте</span></div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="authModal">
+  <div class="auth-modal">
+    <button class="modal-close" id="modalClose">✕</button>
+    <h2 id="modalTitle">Добро пожаловать</h2>
+    <p class="sub">Войдите, чтобы писать отзывы и общаться со мной</p>
+    <div class="auth-tabs">
+      <button class="auth-tab active" data-tab="login">Вход</button>
+      <button class="auth-tab" data-tab="register">Регистрация</button>
+    </div>
+    <form class="auth-form active" id="loginForm">
+      <div class="auth-field"><label>Email</label><input type="email" id="loginEmail" placeholder="your@mail.ru" required></div>
+      <div class="auth-field"><label>Пароль</label><input type="password" id="loginPassword" placeholder="••••••••" required></div>
+      <button type="submit" class="auth-submit" id="loginSubmit">Войти</button>
+      <div class="auth-msg" id="loginMsg"></div>
+    </form>
+    <form class="auth-form" id="registerForm">
+      <div class="auth-field"><label>Ваше имя</label><input type="text" id="regName" placeholder="Как вас зовут" required></div>
+      <div class="auth-field"><label>Город</label><input type="text" id="regCity" placeholder="Соликамск, Березники..." required></div>
+      <div class="auth-field"><label>Email</label><input type="email" id="regEmail" placeholder="your@mail.ru" required></div>
+      <div class="auth-field"><label>Пароль (мин. 6 символов)</label><input type="password" id="regPassword" placeholder="••••••••" required minlength="6"></div>
+      <button type="submit" class="auth-submit" id="regSubmit">Зарегистрироваться</button>
+      <div class="auth-msg" id="regMsg"></div>
+      <p class="auth-hint">Регистрация бесплатная. Email нужен, чтобы я мог ответить.</p>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
+import { getFirestore, collection, addDoc, deleteDoc, doc, query, orderBy, onSnapshot, serverTimestamp, getDoc, setDoc, collectionGroup } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyA4sRGHk1WZLy9RRfLH3ANRC-L1OrZAXjY",
+  authDomain: "atelierrose.firebaseapp.com",
+  projectId: "atelierrose",
+  storageBucket: "atelierrose.firebasestorage.app",
+  messagingSenderId: "189739128320",
+  appId: "1:189739128320:web:caad716ab180e89ebd6ae5"
+};
+
+const ADMIN_EMAIL = 'atelier.rose@mail.ru';
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => document.querySelectorAll(s);
+
+function toast(msg, type='') {
+  const t = $('#toast');
+  t.textContent = msg;
+  t.className = 'toast show ' + type;
+  setTimeout(() => t.className = 'toast ' + type, 3200);
+}
+
+const pages = {
+  home: $('#page-home'), gallery: $('#page-gallery'), order: $('#page-order'),
+  delivery: $('#page-delivery'), care: $('#page-care'), chat: $('#page-chat'), admin: $('#page-admin')
+};
+
+function showPage(name, anchor) {
+  closeMobileMenu();
+  Object.values(pages).forEach(p => p && p.classList.remove('active'));
+  const current = pages[name] || pages.home;
+  current.classList.add('active');
+  $$('nav a[data-nav], .mobile-menu a[data-nav]').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + name);
+  });
+  const html = document.documentElement;
+  const prev = html.style.scrollBehavior;
+  html.style.scrollBehavior = 'auto';
+  let target = null;
+  if (name === 'home' && anchor && anchor !== '#home' && anchor.length > 1) {
+    try { target = document.querySelector(anchor); } catch(e){}
+  }
+  if (target) target.scrollIntoView({behavior:'auto', block:'start'});
+  else window.scrollTo(0,0);
+  setTimeout(()=>{ html.style.scrollBehavior = prev || ''; }, 20);
+  current.querySelectorAll('.reveal').forEach(el => el.classList.remove('in'));
+  observeReveals();
+}
+
+function route() {
+  const h = window.location.hash || '';
+  if (h === '#gallery') showPage('gallery');
+  else if (h === '#order') showPage('order');
+  else if (h === '#delivery') showPage('delivery');
+  else if (h === '#care') showPage('care');
+  else if (h === '#chat') showPage('chat');
+  else if (h === '#admin') {
+    if (currentUser && currentUser.email === ADMIN_EMAIL) showPage('admin');
+    else { toast('Доступ только для админа', 'error'); showPage('home'); }
+  }
+  else showPage('home', h);
+}
+window.addEventListener('hashchange', route);
+
+const menuToggle = $('#menuToggle'), mobileMenu = $('#mobileMenu');
+function closeMobileMenu() {
+  if (menuToggle) menuToggle.classList.remove('open');
+  if (mobileMenu) mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+menuToggle.addEventListener('click', () => {
+  const open = mobileMenu.classList.toggle('open');
+  menuToggle.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileMenu));
+
+const authModal = $('#authModal');
+function openAuth(tab='login') {
+  authModal.classList.add('open');
+  $$('.auth-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
+  $$('.auth-form').forEach(f => f.classList.remove('active'));
+  $(tab === 'login' ? '#loginForm' : '#registerForm').classList.add('active');
+}
+function closeAuth() { authModal.classList.remove('open'); }
+
+$('#loginBtn')?.addEventListener('click', () => openAuth('login'));
+$('#mobileLoginBtn')?.addEventListener('click', () => { closeMobileMenu(); openAuth('login'); });
+$('#chatLoginBtn')?.addEventListener('click', () => openAuth('login'));
+$('#modalClose').addEventListener('click', closeAuth);
+authModal.addEventListener('click', e => { if (e.target === authModal) closeAuth(); });
+$$('.auth-tab').forEach(tab => tab.addEventListener('click', () => {
+  $$('.auth-tab').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+  $$('.auth-form').forEach(f => f.classList.remove('active'));
+  $(tab.dataset.tab === 'login' ? '#loginForm' : '#registerForm').classList.add('active');
+}));
+
+$('#loginForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = $('#loginSubmit'), msg = $('#loginMsg');
+  btn.disabled = true; btn.textContent = 'Вход...';
+  msg.textContent = ''; msg.className = 'auth-msg';
+  try {
+    await signInWithEmailAndPassword(auth, $('#loginEmail').value.trim(), $('#loginPassword').value);
+    msg.textContent = 'Успешно!'; msg.className = 'auth-msg success';
+    setTimeout(() => { closeAuth(); $('#loginForm').reset(); }, 700);
+  } catch (err) {
+    const m = err.code === 'auth/invalid-credential' || err.code === 'auth/wrong-password' ? 'Неверный email или пароль'
+      : err.code === 'auth/user-not-found' ? 'Пользователь не найден. Зарегистрируйтесь.'
+      : err.code === 'auth/too-many-requests' ? 'Слишком много попыток. Попробуйте позже.'
+      : 'Ошибка: ' + err.message;
+    msg.textContent = m; msg.className = 'auth-msg error';
+  } finally { btn.disabled = false; btn.textContent = 'Войти'; }
+});
+
+$('#registerForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = $('#regSubmit'), msg = $('#regMsg');
+  btn.disabled = true; btn.textContent = 'Создаём...';
+  msg.textContent = ''; msg.className = 'auth-msg';
+  try {
+    const userCred = await createUserWithEmailAndPassword(auth, $('#regEmail').value.trim(), $('#regPassword').value);
+    const name = $('#regName').value.trim();
+    const city = $('#regCity').value.trim();
+    await updateProfile(userCred.user, { displayName: name });
+    await setDoc(doc(db, 'users', userCred.user.uid), {
+      name, city, email: userCred.user.email, createdAt: serverTimestamp()
+    });
+    msg.textContent = 'Аккаунт создан!'; msg.className = 'auth-msg success';
+    setTimeout(() => { closeAuth(); $('#registerForm').reset(); }, 700);
+  } catch (err) {
+    const m = err.code === 'auth/email-already-in-use' ? 'Этот email уже зарегистрирован'
+      : err.code === 'auth/weak-password' ? 'Пароль слишком короткий (мин. 6)'
+      : err.code === 'auth/invalid-email' ? 'Некорректный email'
+      : 'Ошибка: ' + err.message;
+    msg.textContent = m; msg.className = 'auth-msg error';
+  } finally { btn.disabled = false; btn.textContent = 'Зарегистрироваться'; }
+});
+
+$('#logoutBtn').addEventListener('click', async () => {
+  await signOut(auth);
+  $('#userDropdown').classList.remove('open');
+  toast('Вы вышли из аккаунта');
+});
+
+let currentUser = null;
+let isAdmin = false;
+
+onAuthStateChanged(auth, (user) => {
+  currentUser = user;
+  isAdmin = user && user.email === ADMIN_EMAIL;
+  const nav = $('#navActions');
+  const dropdown = $('#userDropdown');
+  $('#navAdminLi').style.display = isAdmin ? 'block' : 'none';
+  $('#navAdminLiMobile').style.display = isAdmin ? 'block' : 'none';
+  $('#ddAdmin').style.display = isAdmin ? 'flex' : 'none';
+  if (user) {
+    const name = user.displayName || user.email.split('@')[0];
+    const initial = name.charAt(0).toUpperCase();
+    nav.innerHTML = `
+      <a href="#order" class="nav-cta">Заказать</a>
+      <div class="user-chip" id="userChip"><div class="ava">${initial}</div><span class="name">${name}</span></div>
+    `;
+    $('#ddName').textContent = name + (isAdmin ? ' 👑' : '');
+    $('#ddEmail').textContent = user.email;
+    $('#userChip').addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle('open');
+    });
+    $('#mobileLoginBtn').textContent = '👤 ' + name;
+    $('#mobileLoginBtn').onclick = () => { closeMobileMenu(); $('#userDropdown').classList.toggle('open'); };
+    renderChat();
+    updateReviewButton(true);
+    if (isAdmin) loadAdminPanel();
+  } else {
+    nav.innerHTML = `<a href="#order" class="nav-cta">Заказать</a><button class="btn-auth" id="loginBtn">Войти</button>`;
+    $('#loginBtn').addEventListener('click', () => openAuth('login'));
+    $('#mobileLoginBtn').textContent = 'Войти / Регистрация';
+    $('#mobileLoginBtn').onclick = () => { closeMobileMenu(); openAuth('login'); };
+    renderChat();
+    updateReviewButton(false);
+  }
+});
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.user-dropdown') && !e.target.closest('.user-chip')) {
+    $('#userDropdown')?.classList.remove('open');
+  }
+});
+
+const revGrid = $('#revGrid');
+let allReviews = [];
+
+function starsHtml(n) { return '★'.repeat(n) + '☆'.repeat(5-n); }
+function initials(name) { return name ? name.charAt(0).toUpperCase() : '?'; }
+
+function renderReviews() {
+  if (!revGrid) return;
+  if (allReviews.length === 0) {
+    revGrid.innerHTML = '<div class="rev-empty">Пока нет отзывов. Будьте первым — оставьте свой!</div>';
+    return;
+  }
+  revGrid.innerHTML = allReviews.map(r => {
+    const isOwner = currentUser && r.userId === currentUser.uid;
+    const name = r.userName || 'Клиент';
+    const text = (r.text || '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return `<div class="rev reveal in ${isOwner ? 'rev-owner' : ''}" data-id="${r.id}">
+      ${isOwner ? '<button class="rev-del" title="Удалить">✕</button>' : ''}
+      <div class="rev-stars">${starsHtml(r.rating || 5)}</div>
+      <p>${text}</p>
+      <div class="rev-author"><div class="rev-ava">${initials(name)}</div><div><b>${name}</b><span>${(r.userCity || 'Пермский край')}</span></div></div>
+    </div>`;
+  }).join('');
+  revGrid.querySelectorAll('.rev-del').forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      const id = e.target.closest('.rev').dataset.id;
+      if (!confirm('Удалить ваш отзыв?')) return;
+      try {
+        await deleteDoc(doc(db, 'reviews', id));
+        toast('Отзыв удалён', 'success');
+      } catch (err) { toast('Не удалось удалить: ' + err.message, 'error'); }
+    });
+  });
+}
+
+const q = query(collection(db, 'reviews'), orderBy('createdAt', 'desc'));
+onSnapshot(q, (snap) => {
+  allReviews = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+  renderReviews();
+  if ($('#statReviews')) $('#statReviews').textContent = allReviews.length;
+  if (isAdmin) renderAdminReviews();
+}, (err) => {
+  console.error(err);
+  if (revGrid) revGrid.innerHTML = '<div class="rev-empty">Не удалось загрузить отзывы.</div>';
+});
+
+let selectedStars = 5;
+const starsPicker = $('#starsPicker');
+starsPicker.querySelectorAll('span').forEach(s => {
+  s.addEventListener('click', () => {
+    selectedStars = +s.dataset.star;
+    starsPicker.querySelectorAll('span').forEach(x => x.classList.toggle('active', +x.dataset.star <= selectedStars));
+  });
+});
+starsPicker.querySelectorAll('span').forEach(x => x.classList.toggle('active', +x.dataset.star <= 5));
+
+function updateReviewButton(logged) {
+  const btn = $('#openReviewBtn');
+  if (!btn) return;
+  if (logged) {
+    btn.textContent = 'Написать отзыв';
+    btn.onclick = () => { $('#revForm').classList.toggle('open'); };
+  } else {
+    btn.textContent = 'Войдите, чтобы оставить отзыв';
+    btn.onclick = () => openAuth('login');
+  }
+}
+
+$('#revForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if (!currentUser) { openAuth('login'); return; }
+  const btn = $('#revSubmit');
+  const text = $('#revText').value.trim();
+  if (text.length < 5) { toast('Отзыв слишком короткий', 'error'); return; }
+  btn.disabled = true; btn.textContent = 'Публикую...';
+  try {
+    const userDoc = await getDoc(doc(db, 'users', currentUser.uid));
+    const userData = userDoc.exists() ? userDoc.data() : {};
+    await addDoc(collection(db, 'reviews'), {
+      userId: currentUser.uid,
+      userName: currentUser.displayName || userData.name || currentUser.email.split('@')[0],
+      userCity: userData.city || '',
+      text: text,
+      rating: selectedStars,
+      createdAt: serverTimestamp()
+    });
+    $('#revText').value = '';
+    $('#revForm').classList.remove('open');
+    toast('Спасибо за отзыв! ❤️', 'success');
+  } catch (err) {
+    toast('Ошибка: ' + err.message, 'error');
+  } finally { btn.disabled = false; btn.textContent = 'Опубликовать отзыв'; }
+});
+
+let chatUnsub = null;
+
+function renderChat() {
+  const box = $('#chatContent');
+  if (!box) return;
+  if (!currentUser) {
+    box.innerHTML = `<div class="chat-locked"><h3>Войдите, чтобы написать</h3><p>Нужна бесплатная регистрация — 30 секунд</p><button class="btn btn-primary" id="chatLoginBtn2">Войти / Регистрация</button></div>`;
+    $('#chatLoginBtn2').addEventListener('click', () => openAuth('login'));
+    if (chatUnsub) { chatUnsub(); chatUnsub = null; }
+    return;
+  }
+  if (chatUnsub) { chatUnsub(); chatUnsub = null; }
+  box.innerHTML = `
+    <div class="chat-body" id="chatBody"><div style="text-align:center;color:var(--muted);font-style:italic;font-size:.88rem;padding:20px;">Загружаю сообщения...</div></div>
+    <div class="chat-input-row">
+      <input type="text" id="chatInput" placeholder="Напишите сообщение..." maxlength="500">
+      <button class="chat-send" id="chatSend">Отправить</button>
+    </div>
+  `;
+  const body = $('#chatBody');
+  const input = $('#chatInput');
+  const send = $('#chatSend');
+  const qc = query(collection(db, 'chats', currentUser.uid, 'messages'), orderBy('createdAt', 'asc'));
+  chatUnsub = onSnapshot(qc, (snap) => {
+    if (snap.empty) {
+      body.innerHTML = '<div style="text-align:center;color:var(--muted);font-style:italic;padding:40px 20px;font-size:.88rem;">Пока нет сообщений. Напишите первым 👋</div>';
+      return;
+    }
+    body.innerHTML = snap.docs.map(d => {
+      const m = d.data();
+      const isMine = m.userId === currentUser.uid;
+      const isFromAdmin = m.isAdmin === true;
+      const cls = isFromAdmin ? 'msg-other msg-admin' : (isMine ? 'msg-mine' : 'msg-other');
+      const time = m.createdAt?.toDate ? m.createdAt.toDate().toLocaleTimeString('ru-RU', {hour:'2-digit', minute:'2-digit'}) : '';
+      const text = (m.text || '').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      const label = isFromAdmin ? '<span style="font-size:.7rem;opacity:.85;display:block;margin-bottom:4px;">👑 Ярослав</span>' : '';
+      return `<div class="msg ${cls}">${label}${text}<span class="msg-time">${time}</span></div>`;
+    }).join('');
+    body.scrollTop = body.scrollHeight;
+  }, (err) => {
+    console.error(err);
+    body.innerHTML = '<div style="text-align:center;color:var(--error);padding:30px;">Ошибка загрузки.</div>';
+  });
+  async function sendMsg() {
+    const text = input.value.trim();
+    if (!text) return;
+    input.value = '';
+    send.disabled = true;
+    try {
+      await addDoc(collection(db, 'chats', currentUser.uid, 'messages'), {
+        userId: currentUser.uid,
+        userName: currentUser.displayName || 'Клиент',
+        isAdmin: false,
+        text: text,
+        createdAt: serverTimestamp()
+      });
+    } catch (err) {
+      toast('Не удалось: ' + err.message, 'error');
+    } finally { send.disabled = false; input.focus(); }
+  }
+  send.addEventListener('click', sendMsg);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') sendMsg(); });
+}
+
+const orderForm = $('#orderForm');
+if (orderForm) {
+  orderForm.addEventListener('submit', async (e) => {
+    const btn = $('#orderSubmit');
+    btn.disabled = true; btn.textContent = 'Отправляю...';
+    try {
+      await addDoc(collection(db, 'orders'), {
+        name: $('#orderName').value.trim(),
+        phone: $('#orderPhone').value.trim(),
+        city: $('#orderCity').value.trim(),
+        date: $('#orderDate').value.trim(),
+        qty: $('#orderQty').value.trim(),
+        color: $('#orderColor').value.trim(),
+        comment: $('#orderComment').value.trim(),
+        createdAt: serverTimestamp(),
+        userId: currentUser ? currentUser.uid : null
+      });
+    } catch (err) {
+      console.error('Firestore save error:', err);
+    }
+  });
+}
+
+let adminChatsUnsub = null;
+let adminOrdersUnsub = null;
+let selectedChatUserId = null;
+let currentChatUnsub = null;
+let allAdminMessages = [];
+
+$$('.admin-tab').forEach(tab => tab.addEventListener('click', () => {
+  $$('.admin-tab').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+  $$('.admin-panel').forEach(p => p.classList.remove('active'));
+  $('#panel-' + tab.dataset.atab).classList.add('active');
+}));
+
+function loadAdminPanel() {
+  if (!isAdmin) return;
+  loadAdminChats();
+  loadAdminOrders();
+  renderAdminReviews();
+}
+
+let allUserChats = [];
+
+function loadAdminChats() {
+  const qChats = collectionGroup(db, 'messages');
+  if (adminChatsUnsub) adminChatsUnsub();
+  adminChatsUnsub = onSnapshot(qChats, (snap) => {
+    allAdminMessages = snap.docs.map(d => {
+      const msg = d.data();
+      const userId = d.ref.parent.parent ? d.ref.parent.parent.id : null;
+      return { id: d.id, userId, ...msg };
+    }).filter(m => m.userId);
+    const chatsMap = {};
+    allAdminMessages.forEach(msg => {
+      if (!chatsMap[msg.userId]) {
+        chatsMap[msg.userId] = { userId: msg.userId, userName: msg.userName || 'Клиент', lastMsg: '', lastTime: 0, count: 0 };
+      }
+      const t = msg.createdAt?.toMillis?.() || 0;
+      if (t >= chatsMap[msg.userId].lastTime) {
+        chatsMap[msg.userId].lastMsg = msg.text || '';
+        chatsMap[msg.userId].lastTime = t;
+        if (msg.userName) chatsMap[msg.userId].userName = msg.userName;
+      }
+      chatsMap[msg.userId].count++;
+    });
+    allUserChats = Object.values(chatsMap).sort((a, b) => b.lastTime - a.lastTime);
+    renderAdminChatList();
+    if ($('#statChats')) $('#statChats').textContent = allUserChats.length;
+  }, (err) => {
+    console.error('Chats load error:', err);
+    if ($('#adminChatList')) $('#adminChatList').innerHTML = '<div class="admin-empty" style="color:var(--error);">Ошибка загрузки. Проверьте правила Firestore.</div>';
+  });
+}
+
+function renderAdminChatList() {
+  const list = $('#adminChatList');
+  if (!list) return;
+  if (allUserChats.length === 0) {
+    list.innerHTML = '<div class="admin-empty">Пока нет диалогов</div>';
+    return;
+  }
+  list.innerHTML = allUserChats.map(c => `
+    <div class="admin-chat-item ${c.userId === selectedChatUserId ? 'active' : ''}" data-uid="${c.userId}">
+      <b>${(c.userName || 'Клиент').replace(/</g,'&lt;')}</b>
+      <span>${(c.lastMsg || '').replace(/</g,'&lt;').substring(0, 50)}</span>
+    </div>
+  `).join('');
+  list.querySelectorAll('.admin-chat-item').forEach(item => {
+    item.addEventListener('click', () => openAdminChat(item.dataset.uid));
+  });
+}
+
+function openAdminChat(userId) {
+  selectedChatUserId = userId;
+  renderAdminChatList();
+  const chat = allUserChats.find(c => c.userId === userId);
+  const view = $('#adminChatView');
+  if (!view) return;
+  view.innerHTML = `
+    <div class="admin-chat-view-header"><b>${(chat?.userName || 'Клиент').replace(/</g,'&lt;')}</b><span>ID: ${userId}</span></div>
+    <div class="admin-chat-messages" id="adminChatMessages"></div>
+    <div class="admin-chat-input">
+      <input type="text" id="adminChatInput" placeholder="Ответить клиенту..." maxlength="500">
+      <button id="adminChatSend">Отправить</button>
+    </div>
+  `;
+  const messages = $('#adminChatMessages');
+  if (currentChatUnsub) currentChatUnsub();
+  const qc = query(collection(db, 'chats', userId, 'messages'), orderBy('createdAt', 'asc'));
+  currentChatUnsub = onSnapshot(qc, (snap) => {
+    if (snap.empty) {
+      messages.innerHTML = '<div style="text-align:center;color:var(--muted);font-style:italic;padding:30px;font-size:.88rem;">Сообщений нет</div>';
+      return;
+    }
+    messages.innerHTML = snap.docs.map(d => {
+      const m = d.data();
+      const isFromAdmin = m.isAdmin === true;
+      const cls = isFromAdmin ? 'msg-mine' : 'msg-other';
+      const time = m.createdAt?.toDate ? m.createdAt.toDate().toLocaleString('ru-RU', {day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit'}) : '';
+      const text = (m.text || '').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      const label = isFromAdmin ? '<span style="font-size:.7rem;opacity:.85;display:block;margin-bottom:4px;">👑 Вы</span>' : '<span style="font-size:.7rem;opacity:.85;display:block;margin-bottom:4px;">👤 Клиент</span>';
+      return `<div class="msg ${cls}">${label}${text}<span class="msg-time">${time}</span></div>`;
+    }).join('');
+    messages.scrollTop = messages.scrollHeight;
+  });
+  const input = $('#adminChatInput');
+  const send = $('#adminChatSend');
+  async function adminSend() {
+    const text = input.value.trim();
+    if (!text) return;
+    input.value = '';
+    send.disabled = true;
+    try {
+      await addDoc(collection(db, 'chats', userId, 'messages'), {
+        userId: userId,
+        userName: 'Ярослав (админ)',
+        isAdmin: true,
+        text: text,
+        createdAt: serverTimestamp()
+      });
+    } catch (err) {
+      toast('Ошибка: ' + err.message, 'error');
+    } finally { send.disabled = false; input.focus(); }
+  }
+  send.addEventListener('click', adminSend);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') adminSend(); });
+}
+
+function loadAdminOrders() {
+  const qOrders = query(collection(db, 'orders'), orderBy('createdAt', 'desc'));
+  if (adminOrdersUnsub) adminOrdersUnsub();
+  adminOrdersUnsub = onSnapshot(qOrders, (snap) => {
+    const orders = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    renderAdminOrders(orders);
+    if ($('#statOrders')) $('#statOrders').textContent = orders.length;
+  }, (err) => {
+    console.error('Orders load error:', err);
+    if ($('#adminOrders')) $('#adminOrders').innerHTML = '<div class="admin-empty" style="color:var(--error);">Ошибка загрузки заявок.</div>';
+  });
+}
+
+function renderAdminOrders(orders) {
+  const box = $('#adminOrders');
+  if (!box) return;
+  if (orders.length === 0) {
+    box.innerHTML = '<div class="admin-empty">Пока нет заявок</div>';
+    return;
+  }
+  box.innerHTML = orders.map(o => {
+    const date = o.createdAt?.toDate ? o.createdAt.toDate().toLocaleString('ru-RU') : '';
+    return `<div class="admin-order" data-id="${o.id}">
+      <div class="admin-order-header">
+        <h4>🌹 ${(o.name || 'Без имени').replace(/</g,'&lt;')}</h4>
+        <span>${date}</span>
+      </div>
+      <div class="admin-order-info">
+        <div><b>Телефон</b>${(o.phone || '—').replace(/</g,'&lt;')}</div>
+        <div><b>Город</b>${(o.city || '—').replace(/</g,'&lt;')}</div>
+        <div><b>Дата события</b>${(o.date || '—').replace(/</g,'&lt;')}</div>
+        <div><b>Количество роз</b>${(o.qty || '—').replace(/</g,'&lt;')}</div>
+        <div><b>Оттенок</b>${(o.color || '—').replace(/</g,'&lt;')}</div>
+      </div>
+      ${o.comment ? `<div style="margin-top:14px;padding:14px;background:var(--bg-alt);border-radius:12px;font-size:.88rem;font-weight:300;"><b style="display:block;font-size:.7rem;text-transform:uppercase;color:var(--muted);letter-spacing:.08em;margin-bottom:4px;">Комментарий</b>${o.comment.replace(/</g,'&lt;')}</div>` : ''}
+      <div class="admin-order-actions">
+        <a href="tel:${(o.phone || '').replace(/[^0-9+]/g,'')}">📞 Позвонить</a>
+        <a href="https://wa.me/${(o.phone || '').replace(/[^0-9]/g,'')}" target="_blank">💬 WhatsApp</a>
+        <button class="btn-danger admin-order-del">🗑 Удалить</button>
+      </div>
+    </div>`;
+  }).join('');
+  box.querySelectorAll('.admin-order-del').forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      const id = e.target.closest('.admin-order').dataset.id;
+      if (!confirm('Удалить заявку?')) return;
+      try {
+        await deleteDoc(doc(db, 'orders', id));
+        toast('Заявка удалена', 'success');
+      } catch (err) { toast('Ошибка: ' + err.message, 'error'); }
+    });
+  });
+}
+
+function renderAdminReviews() {
+  const box = $('#adminReviews');
+  if (!box) return;
+  if (allReviews.length === 0) {
+    box.innerHTML = '<div class="admin-empty">Пока нет отзывов</div>';
+    return;
+  }
+  box.innerHTML = allReviews.map(r => {
+    const date = r.createdAt?.toDate ? r.createdAt.toDate().toLocaleString('ru-RU') : '';
+    return `<div class="admin-review" data-id="${r.id}">
+      <div class="admin-review-header">
+        <b>${(r.userName || 'Клиент').replace(/</g,'&lt;')} · ${(r.userCity || '—').replace(/</g,'&lt;')}</b>
+        <span>${date}</span>
+      </div>
+      <div class="admin-review-stars">${starsHtml(r.rating || 5)}</div>
+      <p>${(r.text || '').replace(/</g,'&lt;')}</p>
+      <button class="admin-review-del">🗑 Удалить отзыв</button>
+    </div>`;
+  }).join('');
+  box.querySelectorAll('.admin-review-del').forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      const id = e.target.closest('.admin-review').dataset.id;
+      if (!confirm('Удалить отзыв?')) return;
+      try {
+        await deleteDoc(doc(db, 'reviews', id));
+        toast('Отзыв удалён', 'success');
+      } catch (err) { toast('Ошибка: ' + err.message, 'error'); }
+    });
+  });
+}
+
+let observer = null;
+function observeReveals() {
+  if (observer) observer.disconnect();
+  if (!('IntersectionObserver' in window)) {
+    $$('.page.active .reveal').forEach(el => el.classList.add('in'));
+    return;
+  }
+  observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('in'), (i % 4) * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  $$('.page.active .reveal').forEach(el => observer.observe(el));
+}
+
+route();
+observeReveals();
+</script>
+
+</body>
+</html>
