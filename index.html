@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fbf7f4;--bg-alt:#f5ece8;--card:#fff;--text:#1c1417;--muted:#8a7a80;--accent:#6b1530;--accent-light:#8c1f3f;--accent-2:#c98ba1;--gold:#b8912f;--cream:#f5e6dd;--border:#ece0dd;--shadow:0 30px 70px -30px rgba(107,21,48,.35);--shadow-lg:0 50px 100px -40px rgba(107,21,48,.45);--header-h:78px;--success:#2e7d32;--error:#c62828}
+:root{--bg:#fbf7f4;--bg-alt:#f5ece8;--card:#fff;--text:#1c1417;--muted:#8a7a80;--accent:#6b1530;--accent-light:#8c1f3f;--accent-2:#c98ba1;--gold:#b8912f;--cream:#f5e6dd;--border:#ece0dd;--shadow:0 30px 70px -30px rgba(107,21,48,.35);--shadow-lg:0 50px 100px -40px rgba(107,21,48,.45);--header-h:78px;--success:#2e7d32;--error:#c62828;--safe-b:env(safe-area-inset-bottom,0px)}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{background:var(--bg);color:var(--text);font-family:'Montserrat',sans-serif;font-weight:400;line-height:1.7;overflow-x:hidden;position:relative}
@@ -66,17 +66,15 @@ nav a.active::after{width:100%}
 .mobile-menu.open{transform:translateX(0)}
 .mobile-menu ul{list-style:none}
 .mobile-menu li{border-bottom:1px solid var(--border)}
-.mobile-menu a{display:block;padding:18px 0;font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--text);text-decoration:none}
+.mobile-menu a{display:block;padding:20px 0;font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:500;color:var(--text);text-decoration:none}
 .mobile-menu a.active{color:var(--accent)}
-.mobile-menu .mobile-cta{display:block;margin-top:20px;text-align:center;padding:16px 34px;background:var(--accent);color:#fff;border-radius:44px;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;text-decoration:none}
-.mobile-menu .mobile-auth{display:block;margin-top:10px;text-align:center;padding:14px;border:1px solid var(--border);background:#fff;border-radius:44px;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--text);cursor:pointer;width:100%;font-family:'Montserrat',sans-serif}
+.mobile-menu .mobile-cta{display:block;margin-top:20px;text-align:center;padding:18px 34px;background:var(--accent);color:#fff;border-radius:44px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;text-decoration:none}
+.mobile-menu .mobile-auth{display:block;margin-top:10px;text-align:center;padding:16px;border:1px solid var(--border);background:#fff;border-radius:44px;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--text);cursor:pointer;width:100%;font-family:'Montserrat',sans-serif}
 .marquee{background:var(--accent);color:#fff;padding:16px 0;overflow:hidden}
 .marquee-track{display:flex;width:max-content;animation:marquee 42s linear infinite}
 .marquee-item{display:inline-flex;align-items:center;gap:26px;padding:0 26px;font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-style:italic;font-weight:500;white-space:nowrap}
 .marquee-item::after{content:'✦';color:var(--accent-2);font-style:normal;font-size:1rem}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-/* ================= HERO ================= */
 .hero{padding:70px 0 90px;position:relative;overflow:hidden}
 .hero-deco{position:absolute;border-radius:50%;pointer-events:none;filter:blur(60px);opacity:.5}
 .hero-deco-1{top:-150px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(201,139,161,.55),transparent 70%)}
@@ -94,27 +92,20 @@ nav a.active::after{width:100%}
 .btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-4px);background:#fff}
 .btn-white{background:#fff;color:var(--accent);box-shadow:0 20px 40px -16px rgba(0,0,0,.35)}
 .btn-white:hover{transform:translateY(-4px) scale(1.02)}
-
 .hero-stats{display:flex;gap:52px;margin-top:56px;padding-top:32px;border-top:1px solid var(--border)}
 .hero-stats .stat b{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;display:block;line-height:1;color:var(--accent);letter-spacing:-.02em}
 .hero-stats .stat span{font-size:.7rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;font-weight:500;display:block;margin-top:6px}
-
-/* Фото в hero — обёртка с относительным позиционированием */
 .hero-photo-wrap{position:relative;display:block}
 .hero-photo{aspect-ratio:4/5;border-radius:260px 260px 20px 20px;background:linear-gradient(160deg,var(--cream),var(--accent-2));display:grid;place-items:center;font-size:11rem;box-shadow:var(--shadow-lg);position:relative;overflow:hidden}
 .hero-photo::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.7),transparent 55%)}
 .hero-photo::after{content:'';position:absolute;inset:12px;border-radius:250px 250px 14px 14px;border:1px solid rgba(255,255,255,.35);pointer-events:none}
 .hero-photo span{position:relative;z-index:2;filter:drop-shadow(0 20px 30px rgba(107,21,48,.3))}
-
-/* Бейдж «5-7 дней» — теперь внутри правой колонки, внизу фото */
 .photo-badge{position:absolute;bottom:20px;right:-20px;left:auto;background:#fff;border:1px solid var(--border);border-radius:20px;padding:16px 24px;box-shadow:var(--shadow);text-align:center;z-index:5;animation:badgePulse 4s ease-in-out infinite}
 .photo-badge b{font-family:'Cormorant Garamond',serif;font-size:1.7rem;display:block;color:var(--accent);line-height:1}
 .photo-badge span{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:4px;display:block;white-space:nowrap}
 @keyframes badgePulse{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-
 .hero-note{max-width:660px;margin:56px auto 0;background:linear-gradient(135deg,rgba(184,145,47,.1),rgba(184,145,47,.04));border:1px solid rgba(184,145,47,.3);border-radius:20px;padding:22px 30px;text-align:center;font-size:.9rem;position:relative;z-index:2}
 .hero-note b{color:var(--accent);font-weight:600}
-
 section{padding:90px 0;position:relative;z-index:1}
 .section-alt{background:linear-gradient(180deg,transparent,rgba(245,236,232,.7) 30%,rgba(245,236,232,.7) 70%,transparent)}
 .section-head{text-align:center;max-width:680px;margin:0 auto 60px}
@@ -298,7 +289,7 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
 .admin-stat{background:#fff;border:1px solid var(--border);border-radius:20px;padding:26px;text-align:center}
 .admin-stat b{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;color:var(--accent);display:block;line-height:1}
 .admin-stat span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500;display:block;margin-top:8px}
-.admin-chats{display:grid;grid-template-columns:300px 1fr;gap:0;background:#fff;border:1px solid var(--border);border-radius:22px;overflow:hidden;min-height:500px}
+.admin-chats{display:grid;grid-template-columns:300px 1fr;gap:0;background:#fff;border:1px solid var(--border);border-radius:22px;overflow:hidden;min-height:500px;position:relative}
 .admin-chat-list{border-right:1px solid var(--border);overflow-y:auto;max-height:600px;background:var(--bg)}
 .admin-chat-item{padding:18px 20px;border-bottom:1px solid var(--border);cursor:pointer;transition:.2s}
 .admin-chat-item:hover{background:var(--bg-alt)}
@@ -306,12 +297,14 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
 .admin-chat-item b{display:block;font-size:.9rem;font-weight:600;margin-bottom:4px;color:var(--text)}
 .admin-chat-item span{font-size:.75rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block}
 .admin-chat-view{display:flex;flex-direction:column;max-height:600px}
-.admin-chat-view-header{padding:18px 22px;border-bottom:1px solid var(--border);background:var(--bg-alt)}
-.admin-chat-view-header b{font-size:1rem;display:block}
+.admin-chat-view-header{padding:18px 22px;border-bottom:1px solid var(--border);background:var(--bg-alt);display:flex;align-items:center;gap:12px}
+.admin-chat-view-header b{font-size:1rem;display:block;flex:1}
 .admin-chat-view-header span{font-size:.78rem;color:var(--muted)}
-.admin-chat-messages{flex:1;padding:20px 22px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;background:#fff;min-height:300px}
-.admin-chat-input{padding:14px 18px;border-top:1px solid var(--border);display:flex;gap:10px}
-.admin-chat-input input{flex:1;padding:13px 20px;border:1px solid var(--border);border-radius:40px;font-family:'Montserrat',sans-serif;font-size:15px;outline:none;background:var(--bg)}
+.admin-back-btn{display:none;background:transparent;border:1px solid var(--border);border-radius:50%;width:38px;height:38px;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;flex-shrink:0;transition:.3s;color:var(--text)}
+.admin-back-btn:hover{background:var(--bg-alt);border-color:var(--accent);color:var(--accent)}
+.admin-chat-messages{flex:1;padding:20px 22px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;background:#fff;min-height:300px;-webkit-overflow-scrolling:touch}
+.admin-chat-input{padding:14px 18px;border-top:1px solid var(--border);display:flex;gap:10px;background:#fff;padding-bottom:calc(14px + var(--safe-b))}
+.admin-chat-input input{flex:1;padding:13px 20px;border:1px solid var(--border);border-radius:40px;font-family:'Montserrat',sans-serif;font-size:16px;outline:none;background:var(--bg)}
 .admin-chat-input input:focus{border-color:var(--accent);background:#fff}
 .admin-chat-input button{padding:13px 24px;background:var(--accent);color:#fff;border:none;border-radius:40px;font-family:'Montserrat',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:.3s}
 .admin-chat-empty{padding:60px 30px;text-align:center;color:var(--muted);font-style:italic}
@@ -324,7 +317,7 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
 .admin-order-info div{font-size:.88rem}
 .admin-order-info b{color:var(--muted);font-weight:500;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:2px}
 .admin-order-actions{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
-.admin-order-actions a,.admin-order-actions button{padding:9px 18px;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--border);background:#fff;color:var(--text);cursor:pointer;transition:.3s;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.admin-order-actions a,.admin-order-actions button{padding:12px 20px;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--border);background:#fff;color:var(--text);cursor:pointer;transition:.3s;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
 .admin-order-actions a:hover,.admin-order-actions button:hover{border-color:var(--accent);color:var(--accent)}
 .admin-order-actions .btn-danger{color:var(--error)}
 .admin-order-actions .btn-danger:hover{border-color:var(--error);color:var(--error)}
@@ -336,7 +329,7 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
 .admin-review-header span{font-size:.74rem;color:var(--muted)}
 .admin-review-stars{color:var(--gold);font-size:.95rem;letter-spacing:2px;margin-bottom:10px}
 .admin-review p{font-size:.9rem;font-weight:300;line-height:1.7;margin-bottom:14px;white-space:pre-wrap}
-.admin-review button{padding:8px 18px;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--error);background:#fff;color:var(--error);cursor:pointer}
+.admin-review button{padding:12px 20px;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--error);background:#fff;color:var(--error);cursor:pointer}
 .admin-review button:hover{background:var(--error);color:#fff}
 .modal-overlay{position:fixed;inset:0;background:rgba(28,20,23,.6);backdrop-filter:blur(8px);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px}
 .modal-overlay.open{display:flex}
@@ -352,19 +345,21 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
 .auth-form.active{display:block}
 .auth-field{margin-bottom:14px}
 .auth-field label{display:block;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
-.auth-field input{width:100%;padding:15px 20px;border:1px solid var(--border);border-radius:12px;font-family:'Montserrat',sans-serif;font-size:16px;outline:none;background:var(--bg);transition:.3s}
+.auth-field input{width:100%;padding:16px 20px;border:1px solid var(--border);border-radius:12px;font-family:'Montserrat',sans-serif;font-size:16px;outline:none;background:var(--bg);transition:.3s}
 .auth-field input:focus{border-color:var(--accent);background:#fff}
-.auth-submit{width:100%;padding:16px;margin-top:8px;background:var(--accent);color:#fff;border:none;border-radius:44px;font-family:'Montserrat',sans-serif;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:.35s;box-shadow:0 16px 34px -14px var(--accent)}
+.auth-submit{width:100%;padding:18px;margin-top:8px;background:var(--accent);color:#fff;border:none;border-radius:44px;font-family:'Montserrat',sans-serif;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;cursor:pointer;transition:.35s;box-shadow:0 16px 34px -14px var(--accent)}
 .auth-submit:hover{transform:translateY(-3px)}
 .auth-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
 .auth-msg{text-align:center;font-size:.82rem;margin-top:14px;min-height:20px;font-weight:500}
 .auth-msg.error{color:var(--error)}
 .auth-msg.success{color:var(--success)}
 .auth-hint{font-size:.72rem;color:var(--muted);text-align:center;margin-top:12px}
-.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--text);color:#fff;padding:16px 28px;border-radius:40px;font-size:.85rem;font-weight:500;z-index:2000;transition:transform .4s;box-shadow:0 20px 40px -12px rgba(0,0,0,.4);max-width:90vw;text-align:center}
+.toast{position:fixed;bottom:calc(30px + var(--safe-b));left:50%;transform:translateX(-50%) translateY(100px);background:var(--text);color:#fff;padding:16px 28px;border-radius:40px;font-size:.85rem;font-weight:500;z-index:2000;transition:transform .4s;box-shadow:0 20px 40px -12px rgba(0,0,0,.4);max-width:90vw;text-align:center}
 .toast.show{transform:translateX(-50%) translateY(0)}
 .toast.success{background:var(--success)}
 .toast.error{background:var(--error)}
+
+/* ============ ПЛАНШЕТ (до 980px) ============ */
 @media (max-width:980px){
   :root{--header-h:68px}
   nav ul,.nav-cta,.btn-auth{display:none}
@@ -387,17 +382,17 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
   .form-wrapper{padding:40px 32px}
   .form-row{grid-template-columns:1fr}
   .deadline-banner{grid-template-columns:1fr;gap:14px;padding:30px 26px;text-align:center}
-  .admin-chats{grid-template-columns:1fr}
-  .admin-chat-list{border-right:none;border-bottom:1px solid var(--border);max-height:220px}
   .admin-stats{grid-template-columns:1fr}
 }
+
+/* ============ ТЕЛЕФОН (до 620px) ============ */
 @media (max-width:620px){
   .container{padding:0 18px}
   :root{--header-h:64px}
   .logo-mark{width:40px;height:40px}
   .logo-text b{font-size:1.05rem}
   .logo-text span{display:none}
-  .menu-toggle{width:42px;height:42px}
+  .menu-toggle{width:44px;height:44px}
   section{padding:50px 0}
   .section-head{margin-bottom:36px}
   .section-head h2{font-size:1.85rem}
@@ -406,7 +401,7 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
   .hero{padding:40px 0 54px}
   .hero h1{font-size:clamp(2rem,9vw,2.6rem)}
   .hero-btns{flex-direction:column;gap:10px;margin-top:28px}
-  .hero-btns .btn{width:100%;padding:16px 24px}
+  .hero-btns .btn{width:100%;padding:18px 24px;font-size:.8rem}
   .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:34px;text-align:center}
   .hero-stats .stat b{font-size:1.5rem}
   .hero-stats .stat span{font-size:.56rem}
@@ -414,25 +409,161 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
   .photo-badge{padding:10px 14px;bottom:12px;right:-10px;border-radius:14px}
   .photo-badge b{font-size:1.2rem}
   .photo-badge span{font-size:.55rem;letter-spacing:.1em}
-  .hero-note{margin-top:28px;padding:16px 20px;font-size:.82rem}
+  .hero-note{margin-top:28px;padding:18px 20px;font-size:.84rem}
   .adv-grid,.rev-grid,.gallery-preview,.gallery-full,.steps,.care-tips,.about-meta{grid-template-columns:1fr}
   .price-banner{flex-direction:column}
-  .price-item{padding:20px 22px}
+  .price-item{padding:22px 22px}
   .price-item:not(:last-child)::after{display:none}
   .price-item:not(:last-child){border-bottom:1px solid var(--border)}
-  .cta-box{padding:44px 22px}
+  .cta-box{padding:44px 22px;border-radius:24px}
   .cta-box h2{font-size:1.6rem}
-  .cta-box .btn{width:100%;padding:16px 24px}
-  .form-wrapper{padding:30px 20px}
-  .auth-modal{padding:36px 26px}
+  .cta-box .btn{width:100%;padding:18px 24px;font-size:.8rem}
+  .form-wrapper{padding:30px 20px;border-radius:24px}
+  .form-row{margin-bottom:16px}
+  .form-field > span{font-size:.72rem}
+  .form-field input,.form-field textarea{padding:17px 18px;font-size:16px;border-radius:12px}
+  .form-field textarea{min-height:110px}
+  .form-submit{width:100%;padding:20px 30px;font-size:.8rem;margin-top:30px}
+  .auth-modal{padding:36px 26px;border-radius:22px}
   .foot-grid{grid-template-columns:1fr;gap:28px}
   .foot-bottom{flex-direction:column;text-align:center;gap:10px}
   .chat-wrapper{border-radius:20px}
-  .chat-body{padding:16px 18px}
-  .chat-input-row{padding:12px 14px;flex-direction:column}
-  .chat-send{width:100%}
-  .admin-tabs{flex-direction:column;gap:4px;border-radius:20px}
-  .admin-tab{width:100%}
+  .chat-body{padding:16px 18px;min-height:280px;max-height:400px}
+  .chat-input-row{padding:12px 14px;flex-direction:row}
+  .chat-input-row input{padding:14px 18px}
+  .chat-send{padding:14px 20px;font-size:.74rem}
+  .chat-header{padding:18px 20px}
+  .chat-header .ava{width:40px;height:40px}
+  .inner-hero{padding:46px 0 30px}
+  .inner-hero h1{font-size:clamp(1.9rem,8vw,2.5rem)}
+  .back-link{font-size:.72rem;margin-bottom:18px}
+  .info-card{padding:32px 22px;border-radius:20px}
+  .care-card{padding:32px 22px;border-radius:20px}
+  .highlight-box{padding:34px 22px;border-radius:20px}
+  .highlight-num{font-size:3.4rem}
+  .info-list li{padding:14px 0;font-size:.88rem}
+  .info-note{padding:26px 20px;font-size:.86rem}
+  .info-note .btn, .gallery-note .btn{display:block;width:100%;padding:18px 24px;font-size:.78rem}
+  .gallery-note{padding:30px 22px;border-radius:20px}
+  .deadline-banner{padding:26px 20px;border-radius:20px;margin-bottom:36px}
+  .deadline-icon{font-size:2.8rem}
+  .deadline-text h3{font-size:1.15rem}
+  .gallery-preview .work,.gallery-full .work{border-radius:16px}
+
+  /* ============ АДМИНКА — ВАРИАНТ А (полноэкранные экраны) ============ */
+  .admin-stats{grid-template-columns:1fr;gap:10px;margin-bottom:24px}
+  .admin-stat{padding:18px 16px;border-radius:16px}
+  .admin-stat b{font-size:2rem}
+  .admin-stat span{font-size:.66rem;margin-top:6px}
+
+  .admin-tabs{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:4px;
+    background:var(--bg-alt);padding:5px;border-radius:16px;
+    max-width:none;margin:0 0 20px;
+    position:sticky;top:calc(var(--header-h) + 8px);z-index:20;
+    box-shadow:0 8px 20px -12px rgba(0,0,0,.15);
+  }
+  .admin-tab{
+    padding:14px 8px;border-radius:12px;
+    font-size:.7rem;letter-spacing:.04em;
+    display:flex;flex-direction:column;align-items:center;gap:3px;
+  }
+  .admin-tab.active{background:#fff;color:var(--accent)}
+
+  /* Список чатов — во всю ширину */
+  .admin-chats{
+    display:block;
+    border:none;border-radius:0;
+    background:transparent;
+    overflow:visible;
+    min-height:auto;
+    position:relative;
+  }
+  .admin-chat-list{
+    border:none;border-radius:16px;
+    max-height:none;
+    overflow:visible;
+    background:transparent;
+    display:flex;flex-direction:column;gap:10px;
+  }
+  .admin-chat-item{
+    padding:18px 20px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:16px;
+    box-shadow:0 6px 16px -12px rgba(0,0,0,.2);
+  }
+  .admin-chat-item.active{background:#fff;border-left:3px solid var(--accent)}
+
+  /* Диалог — скрыт по умолчанию, показывается при открытии */
+  .admin-chat-view{display:none;max-height:none;background:#fff;border-radius:16px;border:1px solid var(--border);overflow:hidden}
+  .admin-chat-view.mobile-open{
+    display:flex;
+    position:fixed;
+    inset:var(--header-h) 0 0 0;
+    background:#fff;
+    z-index:100;
+    border-radius:0;
+    max-height:none;
+    flex-direction:column;
+  }
+  .admin-chat-view-header{
+    padding:14px 18px;
+    padding-top:calc(14px + env(safe-area-inset-top,0px));
+    background:var(--bg-alt);
+    border-bottom:1px solid var(--border);
+    flex-shrink:0;
+  }
+  .admin-chat-view-header b{font-size:.95rem}
+  .admin-chat-view-header span{font-size:.7rem}
+  .admin-back-btn{display:flex;width:42px;height:42px;font-size:1.05rem}
+  .admin-chat-messages{
+    flex:1;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    padding:16px 18px;
+    min-height:auto;
+    max-height:none;
+  }
+  .admin-chat-input{
+    padding:12px 14px;
+    padding-bottom:calc(12px + var(--safe-b));
+    flex-shrink:0;
+  }
+  .admin-chat-input input{padding:15px 18px;font-size:16px}
+  .admin-chat-input button{padding:15px 22px;font-size:.76rem}
+
+  /* Заявки */
+  .admin-order{padding:20px 18px;border-radius:16px}
+  .admin-order-header h4{font-size:1.05rem}
+  .admin-order-info{grid-template-columns:1fr 1fr;gap:12px}
+  .admin-order-info div{font-size:.84rem}
+  .admin-order-info b{font-size:.66rem}
+  .admin-order-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .admin-order-actions a, .admin-order-actions button{
+    width:100%;
+    padding:14px 12px;
+    font-size:.72rem;
+    justify-content:center;
+  }
+  .admin-order-actions .btn-danger{grid-column:1/-1}
+
+  /* Отзывы в админке */
+  .admin-review{padding:20px 18px;border-radius:16px}
+  .admin-review-header b{font-size:.88rem}
+  .admin-review p{font-size:.85rem}
+  .admin-review button{width:100%;padding:14px 20px;font-size:.74rem}
+}
+
+/* ============ МАЛЕНЬКИЕ ЭКРАНЫ (до 380px) ============ */
+@media (max-width:380px){
+  .container{padding:0 14px}
+  .hero h1{font-size:1.85rem}
+  .hero-stats .stat b{font-size:1.3rem}
+  .section-head h2{font-size:1.7rem}
+  .inner-hero h1{font-size:1.75rem}
+  .about-hero h2{font-size:1.5rem}
+  .admin-order-info{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -843,6 +974,9 @@ function showPage(name, anchor) {
   setTimeout(()=>{ html.style.scrollBehavior = prev || ''; }, 20);
   current.querySelectorAll('.reveal').forEach(el => el.classList.remove('in'));
   observeReveals();
+  // Закрыть мобильный диалог чата при переходе между страницами
+  const chatView = document.getElementById('adminChatView');
+  if (chatView) chatView.classList.remove('mobile-open');
 }
 
 function route() {
@@ -1179,6 +1313,8 @@ $$('.admin-tab').forEach(tab => tab.addEventListener('click', () => {
   tab.classList.add('active');
   $$('.admin-panel').forEach(p => p.classList.remove('active'));
   $('#panel-' + tab.dataset.atab).classList.add('active');
+  const chatView = document.getElementById('adminChatView');
+  if (chatView) chatView.classList.remove('mobile-open');
 }));
 
 function loadAdminPanel() {
@@ -1246,13 +1382,30 @@ function openAdminChat(userId) {
   const view = $('#adminChatView');
   if (!view) return;
   view.innerHTML = `
-    <div class="admin-chat-view-header"><b>${(chat?.userName || 'Клиент').replace(/</g,'&lt;')}</b><span>ID: ${userId}</span></div>
+    <div class="admin-chat-view-header">
+      <button class="admin-back-btn" id="adminBackBtn" aria-label="К списку чатов">←</button>
+      <div style="flex:1;min-width:0;">
+        <b>${(chat?.userName || 'Клиент').replace(/</g,'&lt;')}</b>
+        <span>ID: ${userId}</span>
+      </div>
+    </div>
     <div class="admin-chat-messages" id="adminChatMessages"></div>
     <div class="admin-chat-input">
       <input type="text" id="adminChatInput" placeholder="Ответить клиенту..." maxlength="500">
       <button id="adminChatSend">Отправить</button>
     </div>
   `;
+  // На мобильных открываем диалог на весь экран
+  if (window.innerWidth <= 620) {
+    view.classList.add('mobile-open');
+    document.body.style.overflow = 'hidden';
+  }
+  $('#adminBackBtn').addEventListener('click', () => {
+    view.classList.remove('mobile-open');
+    document.body.style.overflow = '';
+    selectedChatUserId = null;
+    renderAdminChatList();
+  });
   const messages = $('#adminChatMessages');
   if (currentChatUnsub) currentChatUnsub();
   const qc = query(collection(db, 'chats', userId, 'messages'), orderBy('createdAt', 'asc'));
