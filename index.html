@@ -32,8 +32,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(251,247,244,.85);backdro
 .logo-mark img{width:100%;height:100%;object-fit:cover;display:block}
 .logo-text b{font-family:'Cormorant Garamond',serif;font-size:1.32rem;font-weight:600;letter-spacing:.18em;display:block;white-space:nowrap;color:var(--accent)}
 .logo-text span{font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);display:block;white-space:nowrap}
-nav ul{display:flex;gap:22px;list-style:none}
-nav a{color:var(--text);text-decoration:none;font-size:.82rem;letter-spacing:.08em;font-weight:500;position:relative;padding-bottom:4px;transition:color .3s;cursor:pointer}
+nav ul{display:flex;gap:20px;list-style:none}
+nav a{color:var(--text);text-decoration:none;font-size:.8rem;letter-spacing:.08em;font-weight:500;position:relative;padding-bottom:4px;transition:color .3s;cursor:pointer}
 nav a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--accent);transition:width .35s}
 nav a:hover{color:var(--accent)}
 nav a:hover::after{width:100%}
@@ -132,7 +132,30 @@ section{padding:90px 0;position:relative;z-index:1}
 .work-master{position:absolute;bottom:18px;right:18px;z-index:3;background:rgba(107,21,48,.9);color:#fff;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;padding:7px 14px;border-radius:30px;font-weight:600;backdrop-filter:blur(10px)}
 .gallery-cta{text-align:center}
 .catalog-note{text-align:center;font-size:.88rem;color:var(--muted);margin-top:36px;font-weight:300}
-.gallery-loading{grid-column:1/-1;text-align:center;padding:50px 20px;color:var(--muted);font-style:italic}
+
+/* ГОТОВЫЕ БУКЕТЫ */
+.ready-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.ready-card{background:#fff;border:1px solid var(--border);border-radius:24px;overflow:hidden;transition:.5s;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.ready-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:transparent}
+.ready-img{aspect-ratio:4/5;position:relative;overflow:hidden;background:var(--bg-alt)}
+.ready-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1s}
+.ready-card:hover .ready-img img{transform:scale(1.06)}
+.ready-master{position:absolute;top:16px;left:16px;background:rgba(255,255,255,.95);color:var(--accent);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;padding:7px 14px;border-radius:30px;font-weight:700;backdrop-filter:blur(8px)}
+.ready-body{padding:22px 24px 26px;display:flex;flex-direction:column;flex:1}
+.ready-body h3{font-size:1.4rem;margin-bottom:8px;font-weight:600;letter-spacing:-.01em}
+.ready-body .desc{font-size:.85rem;color:var(--muted);font-weight:300;margin-bottom:18px;flex:1;line-height:1.6}
+.ready-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:16px;border-top:1px solid var(--border)}
+.ready-price{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--accent);line-height:1}
+.ready-price small{font-size:.85rem;color:var(--muted);font-weight:400;display:block;letter-spacing:.1em;text-transform:uppercase;font-family:'Montserrat',sans-serif;margin-top:2px}
+.ready-buy{padding:11px 22px;background:var(--accent);color:#fff;border:none;border-radius:40px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:.3s;text-decoration:none;display:inline-block}
+.ready-buy:hover{transform:translateY(-2px);box-shadow:0 12px 24px -10px var(--accent)}
+
+.ready-empty{max-width:640px;margin:0 auto;text-align:center;padding:60px 30px;background:#fff;border:1px solid var(--border);border-radius:28px;box-shadow:var(--shadow)}
+.ready-empty .emoji{font-size:4rem;display:block;margin-bottom:20px;filter:drop-shadow(0 10px 20px rgba(107,21,48,.2))}
+.ready-empty h3{font-size:1.8rem;margin-bottom:12px}
+.ready-empty p{color:var(--muted);font-weight:300;font-size:1rem;line-height:1.7;margin-bottom:24px}
+.ready-empty .btn{margin:0 auto}
+
 .masters-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-bottom:50px}
 .master-card{background:#fff;border:1px solid var(--border);border-radius:28px;padding:48px 44px;text-align:center;position:relative;overflow:hidden;transition:.5s}
 .master-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:transparent}
@@ -338,7 +361,6 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
 .admin-review button{padding:12px 20px;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--error);background:#fff;color:var(--error);cursor:pointer}
 .admin-review button:hover{background:var(--error);color:#fff}
 
-/* BOUQUETS ADMIN */
 .bouquets-header{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:24px;flex-wrap:wrap}
 .bouquets-header h3{font-size:1.5rem;font-weight:600}
 .bouquets-header .btn{white-space:nowrap}
@@ -407,7 +429,7 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
   .user-dropdown{right:18px}
   .hero-grid{grid-template-columns:1fr;gap:44px}
   .hero-photo-wrap{max-width:380px;margin:0 auto}
-  .adv-grid,.rev-grid{grid-template-columns:repeat(2,1fr)}
+  .adv-grid,.rev-grid,.ready-grid{grid-template-columns:repeat(2,1fr)}
   .gallery-preview,.gallery-full{grid-template-columns:repeat(2,1fr)}
   .foot-grid{grid-template-columns:1fr 1fr}
   section{padding:60px 0}
@@ -447,7 +469,7 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
   .photo-badge b{font-size:1.2rem}
   .photo-badge span{font-size:.55rem;letter-spacing:.1em}
   .hero-note{margin-top:28px;padding:18px 20px;font-size:.84rem}
-  .adv-grid,.rev-grid,.gallery-preview,.gallery-full,.steps,.care-tips,.about-meta,.masters-grid{grid-template-columns:1fr}
+  .adv-grid,.rev-grid,.gallery-preview,.gallery-full,.steps,.care-tips,.about-meta,.masters-grid,.ready-grid{grid-template-columns:1fr}
   .master-card{padding:32px 22px;border-radius:20px}
   .master-card::before{font-size:7rem}
   .price-banner{flex-direction:column}
@@ -487,6 +509,9 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
   .deadline-banner{padding:26px 20px;border-radius:20px;margin-bottom:36px}
   .deadline-icon{font-size:2.8rem}
   .deadline-text h3{font-size:1.15rem}
+  .ready-empty{padding:44px 22px;border-radius:22px}
+  .ready-empty .emoji{font-size:3rem}
+  .ready-empty h3{font-size:1.4rem}
 
   .admin-stats{grid-template-columns:1fr;gap:10px;margin-bottom:24px}
   .admin-stat{padding:18px 16px;border-radius:16px}
@@ -605,7 +630,8 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
     </a>
     <nav>
       <ul>
-        <li><a href="#gallery" data-nav>Работы</a></li>
+        <li><a href="#ready" data-nav>Готовые букеты</a></li>
+        <li><a href="#gallery" data-nav>Портфолио</a></li>
         <li><a href="#about" data-nav>О мастерах</a></li>
         <li><a href="#order" data-nav>Заказать</a></li>
         <li><a href="#delivery" data-nav>Доставка</a></li>
@@ -624,7 +650,7 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
 
 <div class="user-dropdown" id="userDropdown">
   <div class="drop-head"><b id="ddName">Пользователь</b><span id="ddEmail">—</span></div>
-  <a href="#chat" data-nav>💬 Чат со мной</a>
+  <a href="#chat" data-nav>💬 Чат с нами</a>
   <a href="#reviews" data-nav>⭐ Мои отзывы</a>
   <a href="#admin" data-nav id="ddAdmin" style="display:none;">👑 Админ-панель</a>
   <button id="logoutBtn">🚪 Выйти</button>
@@ -632,7 +658,8 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
 
 <div class="mobile-menu" id="mobileMenu">
   <ul>
-    <li><a href="#gallery" data-nav>Работы</a></li>
+    <li><a href="#ready" data-nav>Готовые букеты</a></li>
+    <li><a href="#gallery" data-nav>Портфолио</a></li>
     <li><a href="#about" data-nav>О мастерах</a></li>
     <li><a href="#order" data-nav>Заказать</a></li>
     <li><a href="#delivery" data-nav>Доставка</a></li>
@@ -654,7 +681,7 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
         <h1>Букеты, которые<br><em>никогда не завянут</em></h1>
         <p class="lead">Авторские букеты из атласных лент ручной работы. Каждый лепесток скручен вручную — с любовью и вниманием к деталям.</p>
         <div class="hero-btns">
-          <a href="#gallery" class="btn btn-primary">Смотреть работы →</a>
+          <a href="#ready" class="btn btn-primary">Готовые букеты →</a>
           <a href="#order" class="btn btn-ghost">Оставить заявку</a>
         </div>
         <div class="hero-stats">
@@ -690,21 +717,39 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
     </div>
   </section>
 
-  <section id="gallery-preview">
+  <!-- ГОТОВЫЕ БУКЕТЫ -->
+  <section id="ready">
     <div class="container">
-      <div class="section-head reveal"><div class="eyebrow">Портфолио</div><h2>Наши лучшие работы</h2><div class="divider center"></div><p>Готовых букетов нет — каждая работа создаётся на заказ.</p></div>
+      <div class="section-head reveal">
+        <div class="eyebrow">Готовые букеты</div>
+        <h2>Можно забрать прямо сейчас</h2>
+        <div class="divider center"></div>
+        <p>Букеты, которые уже готовы — можно заказать сегодня без ожидания.</p>
+      </div>
+      <div id="readyGrid" class="ready-grid"></div>
+    </div>
+  </section>
+
+  <!-- ПОРТФОЛИО -->
+  <section id="gallery-preview" class="section-alt">
+    <div class="container">
+      <div class="section-head reveal"><div class="eyebrow">Портфолио</div><h2>Наши лучшие работы</h2><div class="divider center"></div><p>Примеры работ — каждую можно повторить под ваш запрос.</p></div>
       <div class="price-banner reveal">
         <div class="price-item"><b>75 ₽</b><span>одна роза</span></div>
         <div class="price-item"><b>5–7 дней</b><span>на изготовление</span></div>
         <div class="price-item"><b>0 ₽</b><span>доставка по краю</span></div>
       </div>
-      <div class="gallery-preview" id="galleryPreview"><div class="gallery-loading">Загружаю работы...</div></div>
+      <div class="gallery-preview">
+        <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-41.vkuserphoto.ru/s/v1/ig2/8Y2vwyv0Ceyn6n3_b5nQPc-F_9qdPdMnBZwVu9CzoIf5R374C9haIy67bZr3bX_3reezRd6jpqPSdbwXrJx4TIWx.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&u=ymsOhPUTEtY8rfZwJlY0T1oQgQZ-txaTXtghBY19Ms0&cs=1280x0" alt="Букет"></div>
+        <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-11.vkuserphoto.ru/s/v1/ig2/28tIE9G7j8HT527dc_iZAQTHhal5htYmbz0Cm-SFEZT1EeprRUXb-Vi20uRfRTdIocXR2yiTMq_d3bDx06YF73il.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&u=DEd_jYQTpX7yYQvykxBKCAzC5fhIP6hLk4Q1s-xqQDo&cs=1280x0" alt="Букет"></div>
+        <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-50.vkuserphoto.ru/s/v1/ig2/KWdq1p9aIP5gv67uf-aEKpFrVyAklg9wO3gXt7Uxp7DU77VMI6vT_09RZpOf65CJl02D45KeNd5AJycsAlSfz66K.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&u=SZNZNw698-v4Tj22n9LHg4M9NUNUd94qei1OJR05bJI&cs=1280x0" alt="Букет"></div>
+      </div>
       <div class="gallery-cta reveal" style="margin-top:44px;"><a href="#gallery" class="btn btn-primary">Смотреть всё портфолио →</a></div>
       <p class="catalog-note">Стоимость рассчитывается индивидуально — зависит от количества роз, оттенка и декора.</p>
     </div>
   </section>
 
-  <section id="about" class="section-alt">
+  <section id="about">
     <div class="container">
       <div class="section-head reveal"><div class="eyebrow">О мастерах</div><h2>Те, кто создаёт ваши букеты</h2><div class="divider center"></div></div>
       <div class="masters-grid">
@@ -730,7 +775,7 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
     </div>
   </section>
 
-  <section id="reviews">
+  <section id="reviews" class="section-alt">
     <div class="container">
       <div class="section-head reveal"><div class="eyebrow">Отзывы</div><h2>Что говорят клиенты</h2><div class="divider center"></div><p>Живые отзывы, которые оставляют сами покупатели</p></div>
       <div class="rev-grid" id="revGrid"><div class="rev-loading">Загружаю отзывы...</div></div>
@@ -762,8 +807,23 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
 <main id="page-gallery" class="page">
   <section class="inner-hero"><div class="container"><a href="#home" class="back-link" data-nav>← На главную</a><div class="eyebrow">Портфолио</div><h1>Наши работы</h1><div class="divider center"></div><p>Готовых букетов нет — каждая работа создаётся на заказ.</p></div></section>
   <section style="padding-top:20px;"><div class="container">
-    <div class="gallery-full" id="galleryFull"><div class="gallery-loading">Загружаю работы...</div></div>
+    <div class="gallery-full">
+      <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-41.vkuserphoto.ru/s/v1/ig2/8Y2vwyv0Ceyn6n3_b5nQPc-F_9qdPdMnBZwVu9CzoIf5R374C9haIy67bZr3bX_3reezRd6jpqPSdbwXrJx4TIWx.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&u=ymsOhPUTEtY8rfZwJlY0T1oQgQZ-txaTXtghBY19Ms0&cs=1280x0" alt="Букет"></div>
+      <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-11.vkuserphoto.ru/s/v1/ig2/28tIE9G7j8HT527dc_iZAQTHhal5htYmbz0Cm-SFEZT1EeprRUXb-Vi20uRfRTdIocXR2yiTMq_d3bDx06YF73il.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&u=DEd_jYQTpX7yYQvykxBKCAzC5fhIP6hLk4Q1s-xqQDo&cs=1280x0" alt="Букет"></div>
+      <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-50.vkuserphoto.ru/s/v1/ig2/KWdq1p9aIP5gv67uf-aEKpFrVyAklg9wO3gXt7Uxp7DU77VMI6vT_09RZpOf65CJl02D45KeNd5AJycsAlSfz66K.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&u=SZNZNw698-v4Tj22n9LHg4M9NUNUd94qei1OJR05bJI&cs=1280x0" alt="Букет"></div>
+      <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-59.vkuserphoto.ru/s/v1/ig2/exey92RcwB_cpmYptmu_DYce5ZjGFsgLhIoe45v5hkoCaiXI_aL-9DBzD04rIT75fSWR3oKfyY5IB1g3LvfriWiC.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1280x0" alt="Букет"></div>
+      <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-31.vkuserphoto.ru/s/v1/ig2/SWbjnhmmpO_o1xVQjvOxQ3UMSzW9degWhfHc6LYIMN5hBI99E94jfzLG9S1dIoOmQnqdRLhgmJ8uL7UdjEWuilFu.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1439,1280x1706&from=bu&cs=1280x0" alt="Букет"></div>
+      <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-39.vkuserphoto.ru/s/v1/ig2/5UIFVkpU70g9eaNHvXP1Lv15LppZQBFRC3nbl4GvqT8iZojjIhp_B1PRez8_rEJF0snz0zaFr_vCDH6kqOrN3FV4.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1280x0" alt="Букет"></div>
+      <div class="work reveal"><span class="work-tag">Работа</span><img src="https://sun9-16.vkuserphoto.ru/s/v1/ig2/1fU7QS1S1ASXcfi9QH8lYptnRZ1NWr5p_vSVXnM1u9vwABR8WrbFu36lIhurpsq_6FnREtNNcxmbR3Kj04eLYqMU.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1280x0" alt="Букет"></div>
+    </div>
     <div class="gallery-note reveal"><h3>Хотите похожий букет?</h3><p>Любую работу можно повторить в другом оттенке, размере и составе.</p><a href="#order" class="btn btn-primary">Оставить заявку →</a></div>
+  </div></section>
+</main>
+
+<main id="page-ready" class="page">
+  <section class="inner-hero"><div class="container"><a href="#home" class="back-link" data-nav>← На главную</a><div class="eyebrow">Готовые букеты</div><h1>Уже готовы к отправке</h1><div class="divider center"></div><p>Букеты, которые созданы и ждут своего хозяина — можно забрать сегодня.</p></div></section>
+  <section style="padding-top:20px;"><div class="container">
+    <div id="readyGridFull" class="ready-grid"></div>
   </div></section>
 </main>
 
@@ -874,19 +934,19 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
 </main>
 
 <main id="page-admin" class="page">
-  <section class="inner-hero"><div class="container"><a href="#home" class="back-link" data-nav>← На главную</a><div class="eyebrow">Админ-панель</div><h1>👑 Управление</h1><div class="divider center"></div><p>Ваши чаты, заявки, отзывы и букеты в одном месте</p></div></section>
+  <section class="inner-hero"><div class="container"><a href="#home" class="back-link" data-nav>← На главную</a><div class="eyebrow">Админ-панель</div><h1>👑 Управление</h1><div class="divider center"></div><p>Ваши чаты, заявки, отзывы и готовые букеты</p></div></section>
   <section style="padding-top:20px;"><div class="container">
     <div class="admin-stats" id="adminStats">
       <div class="admin-stat"><b id="statChats">—</b><span>Диалогов</span></div>
       <div class="admin-stat"><b id="statOrders">—</b><span>Заявок</span></div>
       <div class="admin-stat"><b id="statReviews">—</b><span>Отзывов</span></div>
-      <div class="admin-stat"><b id="statBouquets">—</b><span>Букетов</span></div>
+      <div class="admin-stat"><b id="statBouquets">—</b><span>Готовых</span></div>
     </div>
     <div class="admin-tabs">
       <button class="admin-tab active" data-atab="chats">💬 Чаты</button>
       <button class="admin-tab" data-atab="orders">📋 Заявки</button>
       <button class="admin-tab" data-atab="reviews">⭐ Отзывы</button>
-      <button class="admin-tab" data-atab="bouquets">🌹 Букеты</button>
+      <button class="admin-tab" data-atab="bouquets">🌹 Готовые</button>
     </div>
     <div class="admin-panel active" id="panel-chats">
       <div class="admin-chats">
@@ -902,7 +962,7 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
     </div>
     <div class="admin-panel" id="panel-bouquets">
       <div class="bouquets-header">
-        <h3>🌹 Мои букеты</h3>
+        <h3>🌹 Готовые букеты</h3>
         <button class="btn btn-primary" id="addBouquetBtn">+ Добавить букет</button>
       </div>
       <div class="bouquet-form-wrapper" id="bouquetFormWrapper">
@@ -944,7 +1004,7 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
         <div class="logo"><div class="logo-mark"><img src="https://sun9-39.vkuserphoto.ru/s/v1/ig2/2IUGzBjw6Aze9BUu_dVHzhA0FyMtL2c25AVExbxj7-TKqSCaM0VjRbL4llg0bYk42Cb28le18V6O6TdQdWGLpX_H.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1080x1080,1254x1254&from=bu&u=eI0um_PKOxa-miIOKuGYnAoV4hIjq9OOBKTyYT9qfIE&cs=1254x0" alt="ATELIER ROSE"></div><div class="logo-text"><b>ATELIER ROSE</b><span>букеты из атласных лент</span></div></div>
         <p>Авторские букеты из атласных лент. Соликамск, Березники, Кудымкар, Александровск, Красновишерск и весь Пермский край.</p>
       </div>
-      <div><h4>Разделы</h4><ul><li><a href="#gallery" data-nav>Портфолио</a></li><li><a href="#about" data-nav>О мастерах</a></li><li><a href="#reviews" data-nav>Отзывы</a></li></ul></div>
+      <div><h4>Разделы</h4><ul><li><a href="#ready" data-nav>Готовые букеты</a></li><li><a href="#gallery" data-nav>Портфолио</a></li><li><a href="#about" data-nav>О мастерах</a></li><li><a href="#reviews" data-nav>Отзывы</a></li></ul></div>
       <div><h4>Информация</h4><ul><li><a href="#order" data-nav>Как заказать</a></li><li><a href="#delivery" data-nav>Доставка и оплата</a></li><li><a href="#care" data-nav>Уход</a></li></ul></div>
       <div><h4>Общение</h4><ul><li><a href="#chat" data-nav>Чат с нами</a></li><li><a href="#reviews" data-nav>Оставить отзыв</a></li><li style="color:#a89ba0;font-size:.82rem;margin-top:6px;">Отвечаем в течение<br>3 часов</li></ul></div>
     </div>
@@ -984,7 +1044,7 @@ footer{background:#1c1417;color:#d5c8cc;padding:60px 0 36px;position:relative;z-
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
-import { getFirestore, collection, addDoc, deleteDoc, doc, updateDoc, query, orderBy, onSnapshot, serverTimestamp, getDoc, setDoc, collectionGroup, getDocs } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, deleteDoc, doc, updateDoc, query, orderBy, onSnapshot, serverTimestamp, getDoc, setDoc, collectionGroup } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBQZNaE_Y6ydU8NmpzrF1H2nZH1vcyYS4g",
@@ -1011,7 +1071,7 @@ function toast(msg, type='') {
 }
 
 const pages = {
-  home: $('#page-home'), gallery: $('#page-gallery'), order: $('#page-order'),
+  home: $('#page-home'), gallery: $('#page-gallery'), ready: $('#page-ready'), order: $('#page-order'),
   delivery: $('#page-delivery'), care: $('#page-care'), chat: $('#page-chat'), admin: $('#page-admin')
 };
 
@@ -1042,6 +1102,7 @@ function showPage(name, anchor) {
 function route() {
   const h = window.location.hash || '';
   if (h === '#gallery') showPage('gallery');
+  else if (h === '#ready') showPage('ready');
   else if (h === '#order') showPage('order');
   else if (h === '#delivery') showPage('delivery');
   else if (h === '#care') showPage('care');
@@ -1181,93 +1242,95 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// ============ БУКЕТЫ (ПОРТФОЛИО) ============
-const DEFAULT_BOUQUETS = [
-  { title: 'Пудровый рассвет', price: '2 400', master: 'Ярослав', desc: '7 роз из атласа пудровых оттенков с сухоцветами', photo: 'https://sun9-41.vkuserphoto.ru/s/v1/ig2/8Y2vwyv0Ceyn6n3_b5nQPc-F_9qdPdMnBZwVu9CzoIf5R374C9haIy67bZr3bX_3reezRd6jpqPSdbwXrJx4TIWx.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&u=ymsOhPUTEtY8rfZwJlY0T1oQgQZ-txaTXtghBY19Ms0&cs=1280x0', isDefault: true },
-  { title: 'Нежный акцент', price: '2 100', master: 'Артём', desc: 'Розы из атласа оливковых и бежевых тонов с зеленью', photo: 'https://sun9-11.vkuserphoto.ru/s/v1/ig2/28tIE9G7j8HT527dc_iZAQTHhal5htYmbz0Cm-SFEZT1EeprRUXb-Vi20uRfRTdIocXR2yiTMq_d3bDx06YF73il.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&u=DEd_jYQTpX7yYQvykxBKCAzC5fhIP6hLk4Q1s-xqQDo&cs=1280x0', isDefault: true },
-  { title: 'Классика', price: '2 800', master: 'Ярослав', desc: 'Глубокие винные розы с атласными листьями', photo: 'https://sun9-50.vkuserphoto.ru/s/v1/ig2/KWdq1p9aIP5gv67uf-aEKpFrVyAklg9wO3gXt7Uxp7DU77VMI6vT_09RZpOf65CJl02D45KeNd5AJycsAlSfz66K.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&u=SZNZNw698-v4Tj22n9LHg4M9NUNUd94qei1OJR05bJI&cs=1280x0', isDefault: true },
-  { title: 'Белоснежный', price: '4 500', master: 'Артём', desc: 'Белые и кремовые розы с жемчужной отделкой', photo: 'https://sun9-59.vkuserphoto.ru/s/v1/ig2/exey92RcwB_cpmYptmu_DYce5ZjGFsgLhIoe45v5hkoCaiXI_aL-9DBzD04rIT75fSWR3oKfyY5IB1g3LvfriWiC.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1280x0', isDefault: true },
-  { title: 'Мини-композиция', price: '1 500', master: 'Ярослав', desc: 'Компактный букетик из маленьких атласных розочек', photo: 'https://sun9-31.vkuserphoto.ru/s/v1/ig2/SWbjnhmmpO_o1xVQjvOxQ3UMSzW9degWhfHc6LYIMN5hBI99E94jfzLG9S1dIoOmQnqdRLhgmJ8uL7UdjEWuilFu.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1439,1280x1706&from=bu&cs=1280x0', isDefault: true },
-  { title: 'Алый шёлк', price: '2 900', master: 'Артём', desc: 'Классика — яркие красные розы из атласа', photo: 'https://sun9-39.vkuserphoto.ru/s/v1/ig2/5UIFVkpU70g9eaNHvXP1Lv15LppZQBFRC3nbl4GvqT8iZojjIhp_B1PRez8_rEJF0snz0zaFr_vCDH6kqOrN3FV4.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1280x0', isDefault: true },
-  { title: 'Весенний', price: '2 200', master: 'Ярослав', desc: 'Розы из атласа нежных весенних оттенков', photo: 'https://sun9-16.vkuserphoto.ru/s/v1/ig2/1fU7QS1S1ASXcfi9QH8lYptnRZ1NWr5p_vSVXnM1u9vwABR8WrbFu36lIhurpsq_6FnREtNNcxmbR3Kj04eLYqMU.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&cs=1280x0', isDefault: true }
-];
-
+// ============ ГОТОВЫЕ БУКЕТЫ (из базы) ============
 let allBouquets = [];
-let bouquetsLoaded = false;
 
-function renderBouquets() {
-  const preview = $('#galleryPreview');
-  const full = $('#galleryFull');
-  const adminGrid = $('#adminBouquetsGrid');
-  const html = (list) => list.map(b => {
+function renderReadyBouquets() {
+  const homeGrid = $('#readyGrid');
+  const fullGrid = $('#readyGridFull');
+  if (!homeGrid && !fullGrid) return;
+
+  if (allBouquets.length === 0) {
+    const emptyHtml = `
+      <div class="ready-empty" style="grid-column:1/-1;">
+        <span class="emoji">🌷</span>
+        <h3>Готовых букетов пока нет</h3>
+        <p>Все букеты создаются на заказ — свяжитесь с нами, и мы соберём букет специально для вас. А как только появятся готовые работы — они появятся здесь.</p>
+        <a href="#order" class="btn btn-primary" data-nav>Заказать букет →</a>
+      </div>`;
+    if (homeGrid) homeGrid.innerHTML = emptyHtml;
+    if (fullGrid) fullGrid.innerHTML = emptyHtml;
+    return;
+  }
+
+  const html = allBouquets.map(b => {
     const title = (b.title || '').replace(/</g,'&lt;');
     const desc = (b.desc || '').replace(/</g,'&lt;');
     const master = (b.master || 'Ярослав').replace(/</g,'&lt;');
+    const price = (b.price || '').replace(/</g,'&lt;');
     const photo = b.photo || '';
-    return `<div class="work reveal in">
-      <span class="work-tag">Работа</span>
-      ${photo ? `<img src="${photo}" alt="${title}" onerror="this.style.display='none'">` : ''}
-      <span class="work-master">🌹 ${master}</span>
-    </div>`;
-  }).join('') || '<div class="gallery-loading">Пока нет работ</div>';
-
-  if (preview) preview.innerHTML = html(allBouquets.slice(0, 3));
-  if (full) full.innerHTML = html(allBouquets);
-
-  if (adminGrid) {
-    if (allBouquets.length === 0) {
-      adminGrid.innerHTML = '<div class="admin-empty">Пока нет букетов. Добавьте первый!</div>';
-      return;
-    }
-    adminGrid.innerHTML = allBouquets.map(b => `
-      <div class="bouquet-admin-card" data-id="${b.id}">
-        <div class="img-wrap">
-          ${b.photo ? `<img src="${b.photo}" alt="${(b.title||'').replace(/</g,'&lt;')}" onerror="this.style.opacity=.3">` : ''}
-          <span class="master-tag">${(b.master || 'Ярослав').replace(/</g,'&lt;')}</span>
-        </div>
-        <div class="info">
-          <h4>${(b.title || '').replace(/</g,'&lt;')}</h4>
-          <div class="desc">${(b.desc || '').replace(/</g,'&lt;')}</div>
-          <div class="price">${(b.price || '').replace(/</g,'&lt;')} ₽</div>
-          <div class="actions">
-            <button class="edit" data-action="edit" data-id="${b.id}">✎ Изменить</button>
-            <button class="del" data-action="del" data-id="${b.id}">🗑 Удалить</button>
-          </div>
+    return `<div class="ready-card reveal in">
+      <div class="ready-img">
+        ${photo ? `<img src="${photo}" alt="${title}" onerror="this.style.opacity=.3">` : ''}
+        <span class="ready-master">🌹 ${master}</span>
+      </div>
+      <div class="ready-body">
+        <h3>${title}</h3>
+        <div class="desc">${desc}</div>
+        <div class="ready-foot">
+          <div class="ready-price">${price} ₽<small>готов к отправке</small></div>
+          <a href="#order" class="ready-buy" data-nav>Заказать</a>
         </div>
       </div>
-    `).join('');
-    adminGrid.querySelectorAll('button[data-action]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id = btn.dataset.id;
-        if (btn.dataset.action === 'edit') editBouquet(id);
-        else if (btn.dataset.action === 'del') deleteBouquet(id);
-      });
-    });
-  }
+    </div>`;
+  }).join('');
+
+  if (homeGrid) homeGrid.innerHTML = html;
+  if (fullGrid) fullGrid.innerHTML = html;
+  if (homeGrid) homeGrid.querySelectorAll('a[data-nav]').forEach(a => a.addEventListener('click', () => {}));
+  if (fullGrid) fullGrid.querySelectorAll('a[data-nav]').forEach(a => a.addEventListener('click', () => {}));
 }
 
-function ensureDefaultBouquets() {
-  getDocs(collection(db, 'bouquets')).then(snap => {
-    if (snap.empty) {
-      DEFAULT_BOUQUETS.forEach(b => {
-        addDoc(collection(db, 'bouquets'), {
-          title: b.title, price: b.price, master: b.master, desc: b.desc, photo: b.photo,
-          createdAt: serverTimestamp()
-        }).catch(() => {});
-      });
-    }
-  }).catch(() => {});
+function renderAdminBouquets() {
+  const grid = $('#adminBouquetsGrid');
+  if (!grid) return;
+  if (allBouquets.length === 0) {
+    grid.innerHTML = '<div class="admin-empty">Пока нет готовых букетов. Добавьте первый!</div>';
+    return;
+  }
+  grid.innerHTML = allBouquets.map(b => `
+    <div class="bouquet-admin-card" data-id="${b.id}">
+      <div class="img-wrap">
+        ${b.photo ? `<img src="${b.photo}" alt="${(b.title||'').replace(/</g,'&lt;')}" onerror="this.style.opacity=.3">` : ''}
+        <span class="master-tag">${(b.master || 'Ярослав').replace(/</g,'&lt;')}</span>
+      </div>
+      <div class="info">
+        <h4>${(b.title || '').replace(/</g,'&lt;')}</h4>
+        <div class="desc">${(b.desc || '').replace(/</g,'&lt;')}</div>
+        <div class="price">${(b.price || '').replace(/</g,'&lt;')} ₽</div>
+        <div class="actions">
+          <button class="edit" data-action="edit" data-id="${b.id}">✎ Изменить</button>
+          <button class="del" data-action="del" data-id="${b.id}">🗑 Удалить</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  grid.querySelectorAll('button[data-action]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.id;
+      if (btn.dataset.action === 'edit') editBouquet(id);
+      else if (btn.dataset.action === 'del') deleteBouquet(id);
+    });
+  });
 }
 
 onSnapshot(query(collection(db, 'bouquets'), orderBy('createdAt', 'desc')), (snap) => {
   allBouquets = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-  renderBouquets();
+  renderReadyBouquets();
+  renderAdminBouquets();
   if ($('#statBouquets')) $('#statBouquets').textContent = allBouquets.length;
-  if (!bouquetsLoaded) { bouquetsLoaded = true; if (allBouquets.length === 0) ensureDefaultBouquets(); }
 }, (err) => {
   console.error('Bouquets load error:', err);
-  const preview = $('#galleryPreview');
-  if (preview) preview.innerHTML = '<div class="gallery-loading">Не удалось загрузить работы</div>';
 });
 
 function openBouquetForm(bouquet) {
@@ -1549,6 +1612,7 @@ function loadAdminPanel() {
   loadAdminChats();
   loadAdminOrders();
   renderAdminReviews();
+  renderAdminBouquets();
 }
 
 let allUserChats = [];
@@ -1580,7 +1644,7 @@ function loadAdminChats() {
     if ($('#statChats')) $('#statChats').textContent = allUserChats.length;
   }, (err) => {
     console.error('Chats load error:', err);
-    if ($('#adminChatList')) $('#adminChatList').innerHTML = '<div class="admin-empty" style="color:var(--error);">Ошибка загрузки. Проверьте правила Firestore.</div>';
+    if ($('#adminChatList')) $('#adminChatList').innerHTML = '<div class="admin-empty" style="color:var(--error);">Ошибка загрузки.</div>';
   });
 }
 
